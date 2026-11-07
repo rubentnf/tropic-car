@@ -1,0 +1,134 @@
+{
+    "meta": {
+        "title": "Tropic Rent a Car · Alquiler de coches en Tenerife",
+        "description": "Alquila tu coche en Tenerife con Tropic Rent a Car. Precios claros, seguro incluido y atención directa."
+    },
+    "nav": {
+        "fleet": "Flota y precios",
+        "how": "Cómo reservar",
+        "contact": "Contacto",
+        "language": "Idioma"
+    },
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L."
+    },
+    "search": {
+        "title": "Busca tu coche",
+        "pickupPlace": "Lugar de recogida",
+        "returnPlace": "Lugar de devolución",
+        "sameAsPickup": "Igual que la recogida",
+        "pickupDate": "Fecha de recogida",
+        "pickupTime": "Hora de recogida",
+        "returnDate": "Fecha de devolución",
+        "returnTime": "Hora de devolución",
+        "submit": "Ver coches y precios",
+        "errorOrder": "La devolución debe ser posterior a la recogida.",
+        "places": {
+            "office": "Oficina Costa del Silencio",
+            "airportSouth": "Aeropuerto Tenerife Sur",
+            "airportNorth": "Aeropuerto Tenerife Norte",
+            "hotel": "Hotel o alojamiento"
+        },
+        "lead": "Elige fechas y mira el precio total al instante."
+    },
+    "results": {
+        "title": "Elige tu coche",
+        "group": "Grupo",
+        "noData": "Faltan datos de la búsqueda o no son válidos.",
+        "backToSearch": "Volver al buscador",
+        "changeSearch": "Cambiar búsqueda",
+        "pickup": "Recogida",
+        "return": "Devolución",
+        "dayOne": "día",
+        "dayMany": "días",
+        "seats": "Sillas infantiles",
+        "seatsHint": "{price} por silla y día",
+        "perDay": "por día",
+        "total": "Total",
+        "taxesIncluded": "Impuestos y seguro incluidos",
+        "minDays": "Se alquila desde {n} días",
+        "noRate": "Sin tarifa para esta duración",
+        "request": "Solicitar este coche",
+        "orSimilar": "o similar",
+        "seatsLabel": "plazas",
+        "ac": "Aire acondicionado",
+        "gearbox": {
+            "manual": "Manual",
+            "automatic": "Automático",
+            "manual_or_automatic": "Manual o automático"
+        },
+        "showModel": "Ver {model}"
+    },
+    "request": {
+        "title": "Solicita tu reserva",
+        "intro": "Revisa el resumen y déjanos tus datos. Esto todavía no es una reserva confirmada: te contactaremos para confirmarla.",
+        "summary": "Resumen",
+        "group": "Grupo",
+        "pickup": "Recogida",
+        "return": "Devolución",
+        "days": "Días",
+        "seats": "Sillas infantiles",
+        "total": "Total",
+        "name": "Nombre y apellidos",
+        "phone": "Teléfono",
+        "email": "Email",
+        "age": "Edad del conductor",
+        "licenceYears": "Años de carnet de conducir",
+        "flight": "Número de vuelo (opcional)",
+        "comments": "Comentarios (opcional)",
+        "privacy": "He leído y acepto la política de privacidad",
+        "conditions": "Conductores de {min} a {max} años y con al menos {years} años de carnet.",
+        "submit": "Enviar solicitud",
+        "sending": "Enviando...",
+        "noData": "Faltan datos de la búsqueda o no son válidos.",
+        "backToSearch": "Volver al buscador",
+        "errors": {
+            "nombre": "Escribe tu nombre.",
+            "telefono": "Escribe un teléfono válido.",
+            "email": "Escribe un email válido.",
+            "edad": "La edad del conductor debe estar entre {min} y {max} años.",
+            "carnet": "Se necesitan al menos {years} años de carnet.",
+            "privacidad": "Debes aceptar la política de privacidad.",
+            "busqueda": "Los datos de la búsqueda no son válidos. Vuelve a buscar.",
+            "grupo": "El coche elegido no es válido. Vuelve a buscar.",
+            "precio": "No hay tarifa para esta duración. Vuelve a buscar.",
+            "idioma": "Idioma no válido.",
+            "generic": "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos."
+        }
+    },
+    "thanks": {
+        "title": "Solicitud recibida",
+        "text": "Tu solicitud está en trámite. Te hemos enviado un email para confirmar la recepción y te contactaremos en breve para confirmar la reserva.",
+        "home": "Volver al inicio"
+    },
+    "hero": {
+        "title": "Alquila tu coche. Sin sorpresas.",
+        "lead": "Precio por día con impuestos y seguro incluidos. Envías la solicitud, te contestamos y lo confirmamos contigo. No pagas nada en la web.",
+        "points": [
+            "Impuestos incluidos",
+            "Aire acondicionado",
+            "Atención en 5 idiomas"
+        ]
+    },
+    "home": {
+        "fleetTitle": "Nuestra flota y precios por día",
+        "fleetLead": "Una selección de nuestros 14 grupos. Impuestos incluidos.",
+        "allGroups": "Ver los 14 grupos",
+        "priceFrom": "por día desde 7 días",
+        "stepsTitle": "Reservar es fácil",
+        "steps": [
+            {
+                "title": "Elige fechas y coche",
+                "text": "Ves el precio total al momento, con las sillas infantiles que necesites."
+            },
+            {
+                "title": "Envía tu solicitud",
+                "text": "Solo tus datos de contacto. Recibes un correo de «solicitud en trámite»."
+            },
+            {
+                "title": "Te lo confirmamos",
+                "text": "Hablamos contigo para cerrar la reserva."
+            }
+        ]
+    }
+}

@@ -1,0 +1,134 @@
+{
+    "meta": {
+        "title": "Tropic Rent a Car · Autonoleggio a Tenerife",
+        "description": "Noleggia la tua auto a Tenerife con Tropic Rent a Car. Prezzi chiari, assicurazione inclusa e assistenza diretta."
+    },
+    "nav": {
+        "fleet": "Flotta e prezzi",
+        "how": "Come prenotare",
+        "contact": "Contatti",
+        "language": "Lingua"
+    },
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L."
+    },
+    "search": {
+        "title": "Trova la tua auto",
+        "lead": "Scegli le date e vedi subito il prezzo totale.",
+        "pickupPlace": "Luogo di ritiro",
+        "returnPlace": "Luogo di riconsegna",
+        "sameAsPickup": "Uguale al ritiro",
+        "pickupDate": "Data di ritiro",
+        "pickupTime": "Ora di ritiro",
+        "returnDate": "Data di riconsegna",
+        "returnTime": "Ora di riconsegna",
+        "submit": "Vedi auto e prezzi",
+        "errorOrder": "La riconsegna deve essere successiva al ritiro.",
+        "places": {
+            "office": "Ufficio Costa del Silencio",
+            "airportSouth": "Aeroporto di Tenerife Sud",
+            "airportNorth": "Aeroporto di Tenerife Nord",
+            "hotel": "Hotel o alloggio"
+        }
+    },
+    "results": {
+        "title": "Scegli la tua auto",
+        "group": "Gruppo",
+        "noData": "I dati della ricerca mancano o non sono validi.",
+        "backToSearch": "Torna alla ricerca",
+        "changeSearch": "Cambia ricerca",
+        "pickup": "Ritiro",
+        "return": "Riconsegna",
+        "dayOne": "giorno",
+        "dayMany": "giorni",
+        "seats": "Seggiolini per bambini",
+        "seatsHint": "{price} per seggiolino al giorno",
+        "perDay": "al giorno",
+        "total": "Totale",
+        "taxesIncluded": "Tasse e assicurazione incluse",
+        "minDays": "Noleggio da {n} giorni",
+        "noRate": "Nessuna tariffa per questa durata",
+        "request": "Richiedi questa auto",
+        "orSimilar": "o simile",
+        "seatsLabel": "posti",
+        "ac": "Aria condizionata",
+        "gearbox": {
+            "manual": "Manuale",
+            "automatic": "Automatico",
+            "manual_or_automatic": "Manuale o automatico"
+        },
+        "showModel": "Vedi {model}"
+    },
+    "request": {
+        "title": "Richiedi la tua prenotazione",
+        "intro": "Controlla il riepilogo e lascia i tuoi dati. Non è ancora una prenotazione confermata: ti contatteremo per confermarla.",
+        "summary": "Riepilogo",
+        "group": "Gruppo",
+        "pickup": "Ritiro",
+        "return": "Riconsegna",
+        "days": "Giorni",
+        "seats": "Seggiolini per bambini",
+        "total": "Totale",
+        "name": "Nome e cognome",
+        "phone": "Telefono",
+        "email": "Email",
+        "age": "Età del conducente",
+        "licenceYears": "Anni di patente",
+        "flight": "Numero del volo (facoltativo)",
+        "comments": "Commenti (facoltativo)",
+        "privacy": "Ho letto e accetto l'informativa sulla privacy",
+        "conditions": "Conducenti da {min} a {max} anni con almeno {years} anni di patente.",
+        "submit": "Invia richiesta",
+        "sending": "Invio in corso...",
+        "noData": "I dati della ricerca mancano o non sono validi.",
+        "backToSearch": "Torna alla ricerca",
+        "errors": {
+            "nombre": "Inserisci il tuo nome.",
+            "telefono": "Inserisci un numero di telefono valido.",
+            "email": "Inserisci un'email valida.",
+            "edad": "L'età del conducente deve essere compresa tra {min} e {max} anni.",
+            "carnet": "Sono necessari almeno {years} anni di patente.",
+            "privacidad": "Devi accettare l'informativa sulla privacy.",
+            "busqueda": "I dati della ricerca non sono validi. Cerca di nuovo.",
+            "grupo": "L'auto scelta non è valida. Cerca di nuovo.",
+            "precio": "Non c'è una tariffa per questa durata. Cerca di nuovo.",
+            "idioma": "Lingua non valida.",
+            "generic": "Non siamo riusciti a inviare la richiesta. Riprova o chiamaci."
+        }
+    },
+    "thanks": {
+        "title": "Richiesta ricevuta",
+        "text": "La tua richiesta è in elaborazione. Ti abbiamo inviato un'email di conferma di ricezione e ti contatteremo a breve per confermare la prenotazione.",
+        "home": "Torna alla home"
+    },
+    "hero": {
+        "title": "Noleggia la tua auto. Senza sorprese.",
+        "lead": "Prezzo al giorno con tasse e assicurazione incluse. Invii la richiesta, ti rispondiamo e la confermiamo con te. Sul sito non paghi nulla.",
+        "points": [
+            "Tasse incluse",
+            "Aria condizionata",
+            "Assistenza in 5 lingue"
+        ]
+    },
+    "home": {
+        "fleetTitle": "La nostra flotta e i prezzi al giorno",
+        "fleetLead": "Una selezione dei nostri 14 gruppi. Tasse incluse.",
+        "allGroups": "Vedi tutti i 14 gruppi",
+        "priceFrom": "al giorno da 7 giorni",
+        "stepsTitle": "Prenotare è facile",
+        "steps": [
+            {
+                "title": "Scegli date e auto",
+                "text": "Vedi subito il prezzo totale, con i seggiolini per bambini di cui hai bisogno."
+            },
+            {
+                "title": "Invia la richiesta",
+                "text": "Solo i tuoi dati di contatto. Ricevi un'email che indica che la richiesta è in elaborazione."
+            },
+            {
+                "title": "Te la confermiamo",
+                "text": "Ti contattiamo per concludere la prenotazione."
+            }
+        ]
+    }
+}

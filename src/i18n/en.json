@@ -1,0 +1,134 @@
+{
+    "meta": {
+        "title": "Tropic Rent a Car · Car hire in Tenerife",
+        "description": "Hire a car in Tenerife with Tropic Rent a Car. Clear prices, insurance included and direct service."
+    },
+    "nav": {
+        "fleet": "Fleet and prices",
+        "how": "How to book",
+        "contact": "Contact",
+        "language": "Language"
+    },
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L."
+    },
+    "search": {
+        "title": "Find your car",
+        "pickupPlace": "Pick-up location",
+        "returnPlace": "Return location",
+        "sameAsPickup": "Same as pick-up",
+        "pickupDate": "Pick-up date",
+        "pickupTime": "Pick-up time",
+        "returnDate": "Return date",
+        "returnTime": "Return time",
+        "submit": "See cars and prices",
+        "errorOrder": "The return must be after the pick-up.",
+        "places": {
+            "office": "Costa del Silencio office",
+            "airportSouth": "Tenerife South Airport",
+            "airportNorth": "Tenerife North Airport",
+            "hotel": "Hotel or accommodation"
+        },
+        "lead": "Choose your dates and see the total price instantly."
+    },
+    "results": {
+        "title": "Choose your car",
+        "group": "Group",
+        "noData": "The search details are missing or not valid.",
+        "backToSearch": "Back to search",
+        "changeSearch": "Change search",
+        "pickup": "Pick-up",
+        "return": "Return",
+        "dayOne": "day",
+        "dayMany": "days",
+        "seats": "Child seats",
+        "seatsHint": "{price} per seat per day",
+        "perDay": "per day",
+        "total": "Total",
+        "taxesIncluded": "Taxes and insurance included",
+        "minDays": "Rented from {n} days",
+        "noRate": "No rate for this duration",
+        "request": "Request this car",
+        "orSimilar": "or similar",
+        "seatsLabel": "seats",
+        "ac": "Air conditioning",
+        "gearbox": {
+            "manual": "Manual",
+            "automatic": "Automatic",
+            "manual_or_automatic": "Manual or automatic"
+        },
+        "showModel": "See {model}"
+    },
+    "request": {
+        "title": "Request your booking",
+        "intro": "Check the summary and leave your details. This is not a confirmed booking yet: we will contact you to confirm it.",
+        "summary": "Summary",
+        "group": "Group",
+        "pickup": "Pick-up",
+        "return": "Return",
+        "days": "Days",
+        "seats": "Child seats",
+        "total": "Total",
+        "name": "Full name",
+        "phone": "Phone",
+        "email": "Email",
+        "age": "Driver's age",
+        "licenceYears": "Years holding a driving licence",
+        "flight": "Flight number (optional)",
+        "comments": "Comments (optional)",
+        "privacy": "I have read and accept the privacy policy",
+        "conditions": "Drivers aged {min} to {max} with at least {years} years of licence.",
+        "submit": "Send request",
+        "sending": "Sending...",
+        "noData": "The search details are missing or not valid.",
+        "backToSearch": "Back to search",
+        "errors": {
+            "nombre": "Enter your name.",
+            "telefono": "Enter a valid phone number.",
+            "email": "Enter a valid email.",
+            "edad": "The driver's age must be between {min} and {max}.",
+            "carnet": "At least {years} years of licence are required.",
+            "privacidad": "You must accept the privacy policy.",
+            "busqueda": "The search details are not valid. Please search again.",
+            "grupo": "The chosen car is not valid. Please search again.",
+            "precio": "There is no rate for this duration. Please search again.",
+            "idioma": "Invalid language.",
+            "generic": "We could not send your request. Please try again or call us."
+        }
+    },
+    "thanks": {
+        "title": "Request received",
+        "text": "Your request is being processed. We have sent you an email confirming recepit and we will contact you shortly to confirm the booking.",
+        "home": "Back to home"
+    },
+    "hero": {
+        "title": "Hire your car. No surprises.",
+        "lead": "Price per day with taxes and insurance included. You send the request, we reply and confirm it with you. You pay nothing on the website.",
+        "points": [
+            "Taxes included",
+            "Air conditioning",
+            "Service in 5 languages"
+        ]
+    },
+    "home": {
+        "fleetTitle": "Our fleet and daily prices",
+        "fleetLead": "A selection of our 14 groups. Taxes included.",
+        "allGroups": "See all 14 groups",
+        "priceFrom": "per day from 7 days",
+        "stepsTitle": "Booking is easy",
+        "steps": [
+            {
+                "title": "Choose dates and car",
+                "text": "You see the total price straight away, with any child seats you need."
+            },
+            {
+                "title": "Send your request",
+                "text": "Only your contact details. You get an email saying your request is being processed."
+            },
+            {
+                "title": "We confirm it",
+                "text": "We talk to you to finalise the booking."
+            }
+        ]
+    }
+}

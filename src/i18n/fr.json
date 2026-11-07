@@ -1,0 +1,134 @@
+{
+    "meta": {
+        "title": "Tropic Rent a Car · Location de voitures à Tenerife",
+        "description": "Louez votre voiture à Tenerife avec Tropic Rent a Car. Prix clairs, assurance incluse et service direct."
+    },
+    "nav": {
+        "fleet": "Flotte et tarifs",
+        "how": "Comment réserver",
+        "contact": "Contact",
+        "language": "Langue"
+    },
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L."
+    },
+    "search": {
+        "title": "Trouvez votre voiture",
+        "lead": "Choisissez vos dates et voyez le prix total immédiatement.",
+        "pickupPlace": "Lieu de prise en charge",
+        "returnPlace": "Lieu de restitution",
+        "sameAsPickup": "Identique à la prise en charge",
+        "pickupDate": "Date de prise en charge",
+        "pickupTime": "Heure de prise en charge",
+        "returnDate": "Date de restitution",
+        "returnTime": "Heure de restitution",
+        "submit": "Voir les voitures et les prix",
+        "errorOrder": "La restitution doit être postérieure à la prise en charge.",
+        "places": {
+            "office": "Agence Costa del Silencio",
+            "airportSouth": "Aéroport de Tenerife Sud",
+            "airportNorth": "Aéroport de Tenerife Nord",
+            "hotel": "Hôtel ou hébergement"
+        }
+    },
+    "results": {
+        "title": "Choisissez votre voiture",
+        "group": "Groupe",
+        "noData": "Les données de la recherche sont manquantes ou invalides.",
+        "backToSearch": "Retour à la recherche",
+        "changeSearch": "Modifier la recherche",
+        "pickup": "Prise en charge",
+        "return": "Restitution",
+        "dayOne": "jour",
+        "dayMany": "jours",
+        "seats": "Sièges enfant",
+        "seatsHint": "{price} par siège et par jour",
+        "perDay": "par jour",
+        "total": "Total",
+        "taxesIncluded": "Taxes et assurance incluses",
+        "minDays": "Location à partir de {n} jours",
+        "noRate": "Pas de tarif pour cette durée",
+        "request": "Demander cette voiture",
+        "orSimilar": "ou similaire",
+        "seatsLabel": "places",
+        "ac": "Climatisation",
+        "gearbox": {
+            "manual": "Manuelle",
+            "automatic": "Automatique",
+            "manual_or_automatic": "Manuelle ou automatique"
+        },
+        "showModel": "Voir {model}"
+    },
+    "request": {
+        "title": "Demandez votre réservation",
+        "intro": "Vérifiez le récapitulatif et laissez vos coordonnées. Ce n'est pas encore une réservation confirmée : nous vous contacterons pour la confirmer.",
+        "summary": "Récapitulatif",
+        "group": "Groupe",
+        "pickup": "Prise en charge",
+        "return": "Restitution",
+        "days": "Jours",
+        "seats": "Sièges enfant",
+        "total": "Total",
+        "name": "Nom et prénom",
+        "phone": "Téléphone",
+        "email": "E-mail",
+        "age": "Âge du conducteur",
+        "licenceYears": "Années de permis de conduire",
+        "flight": "Numéro de vol (facultatif)",
+        "comments": "Commentaires (facultatif)",
+        "privacy": "J'ai lu et j'accepte la politique de confidentialité",
+        "conditions": "Conducteurs de {min} à {max} ans avec au moins {years} ans de permis.",
+        "submit": "Envoyer la demande",
+        "sending": "Envoi en cours...",
+        "noData": "Les données de la recherche sont manquantes ou invalides.",
+        "backToSearch": "Retour à la recherche",
+        "errors": {
+            "nombre": "Saisissez votre nom.",
+            "telefono": "Saisissez un numéro de téléphone valide.",
+            "email": "Saisissez une adresse e-mail valide.",
+            "edad": "L'âge du conducteur doit être compris entre {min} et {max} ans.",
+            "carnet": "Au moins {years} ans de permis sont nécessaires.",
+            "privacidad": "Vous devez accepter la politique de confidentialité.",
+            "busqueda": "Les données de la recherche ne sont pas valides. Veuillez relancer la recherche.",
+            "grupo": "La voiture choisie n'est pas valide. Veuillez relancer la recherche.",
+            "precio": "Il n'y a pas de tarif pour cette durée. Veuillez relancer la recherche.",
+            "idioma": "Langue non valide.",
+            "generic": "Nous n'avons pas pu envoyer votre demande. Réessayez ou appelez-nous."
+        }
+    },
+    "thanks": {
+        "title": "Demande reçue",
+        "text": "Votre demande est en cours de traitement. Nous vous avons envoyé un e-mail d'accusé de réception et nous vous contacterons très bientôt pour confirmer la réservation.",
+        "home": "Retour à l'accueil"
+    },
+    "hero": {
+        "title": "Louez votre voiture. Sans mauvaise surprise.",
+        "lead": "Prix par jour, taxes et assurance incluses. Vous envoyez la demande, nous répondons et nous la confirmons avec vous. Vous ne payez rien sur le site.",
+        "points": [
+            "Taxes incluses",
+            "Climatisation",
+            "Service en 5 langues"
+        ]
+    },
+    "home": {
+        "fleetTitle": "Notre flotte et nos prix par jour",
+        "fleetLead": "Une sélection de nos 14 groupes. Taxes incluses.",
+        "allGroups": "Voir les 14 groupes",
+        "priceFrom": "par jour à partir de 7 jours",
+        "stepsTitle": "Réserver est simple",
+        "steps": [
+            {
+                "title": "Choisissez dates et voiture",
+                "text": "Vous voyez tout de suite le prix total, avec les sièges enfant dont vous avez besoin."
+            },
+            {
+                "title": "Envoyez votre demande",
+                "text": "Uniquement vos coordonnées. Vous recevez un e-mail indiquant que votre demande est en cours de traitement."
+            },
+            {
+                "title": "Nous confirmons",
+                "text": "Nous vous contactons pour finaliser la réservation."
+            }
+        ]
+    }
+}
