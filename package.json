@@ -10,7 +10,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "check": "astro check && npm run lint && npm run format:check",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"src/**/*.css\" --allow-empty-input",
+    "lint:fix": "eslint . --fix && stylelint \"src/**/*.css\" --allow-empty-input --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "vitest run"
   },
   "dependencies": {
@@ -23,6 +29,17 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "stylelint": "^18.0.0",
+    "stylelint-config-standard": "^41.0.0",
+    "typescript-eslint": "^8.72.1",
     "vitest": "^5.1.0",
     "wrangler": "^4.158.0"
   }

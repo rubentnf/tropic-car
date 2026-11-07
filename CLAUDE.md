@@ -3,6 +3,7 @@
 @docs/CONTEXTO.md
 
 ## Cómo trabajar aquí
+
 - Responde en español. Da archivos completos (no fragmentos sueltos) y, si algo falla, di el archivo y la línea exacta.
 - Antes de dar algo por hecho, ejecuta: `npm run check`, `npm test` y `npm run build`. Los tres deben pasar.
 - Commits en español con Conventional Commits (`feat(precios): …`). Una rama por fase `fase-N-nombre`, fusión `--no-ff` y etiqueta `fase-N`.

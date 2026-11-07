@@ -1,0 +1,9 @@
+# Finales de línea LF en el repositorio y en la copia de trabajo,
+# para que Prettier (endOfLine: "lf") no marque todos los archivos en Windows.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.avif binary
+*.woff2 binary
