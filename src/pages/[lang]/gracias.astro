@@ -1,0 +1,29 @@
+---
+import Base from "../../layouts/Base.astro";
+import {
+    getDictionary,
+    locales,
+    localizedPath,
+    type Locale,
+} from "../../i18n/utils";
+
+export function getStaticPaths() {
+    return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const g = getDictionary(lang).thanks;
+---
+
+<Base
+    lang={lang}
+    ruta="gracias"
+    noindex
+    title={`${g.title} · Tropic Rent a Car`}
+>
+    <div class="contenedor solicitud">
+        <h1>{g.title}</h1>
+        <p>{g.text}</p>
+        <a class="boton" href={localizedPath(lang)}>{g.home}</a>
+    </div>
+</Base>

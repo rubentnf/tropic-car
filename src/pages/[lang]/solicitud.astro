@@ -1,0 +1,180 @@
+---
+import Base from "../../layouts/Base.astro";
+import tarifas from "../../data/tarifas.json";
+import {
+    getDictionary,
+    locales,
+    localizedPath,
+    type Locale,
+} from "../../i18n/utils";
+import type { Tarifas } from "../../lib/tipos";
+
+export function getStaticPaths() {
+    return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const t = getDictionary(lang);
+const r = t.request;
+const req = (tarifas as unknown as Tarifas).meta.driver_requirements;
+const rellenar = (texto: string) =>
+    texto
+        .replace("{min}", String(req.min_age))
+        .replace("{max}", String(req.max_age))
+        .replace("{years}", String(req.min_license_years));
+
+const textos = {
+    group: r.group,
+    pickup: r.pickup,
+    return: r.return,
+    days: r.days,
+    seats: r.seats,
+    total: r.total,
+    sending: r.sending,
+    place_office: t.search.places.office,
+    place_airportSouth: t.search.places.airportSouth,
+    place_airportNorth: t.search.places.airportNorth,
+    place_hotel: t.search.places.hotel,
+};
+const errores = Object.fromEntries(
+    Object.entries(r.errors).map(([clave, texto]) => [clave, rellenar(texto)]),
+);
+---
+
+<Base
+    lang={lang}
+    ruta="solicitud"
+    noindex
+    title={`${r.title} · Tropic Rent a Car`}
+>
+    <div
+        class="contenedor solicitud"
+        data-solicitud
+        data-lang={lang}
+        data-gracias={localizedPath(lang, "gracias")}
+        data-textos={JSON.stringify(textos)}
+        data-errores={JSON.stringify(errores)}
+    >
+        <h1>{r.title}</h1>
+
+        <div data-sin-datos hidden>
+            <p class="error">{r.noData}</p>
+            <a class="boton" href={localizedPath(lang)}>{r.backToSearch}</a>
+        </div>
+
+        <div data-con-datos hidden>
+            <p>{r.intro}</p>
+        </div>
+
+        <section class="resumen-solicitud" aria-labelledby="titulo-resumen">
+            <h2 id="titulo-resumen">{r.summary}</h2>
+            <dl data-resumen></dl>
+        </section>
+
+        <form
+            method="post"
+            action="/api/solicitud"
+            class="formulario"
+            novalidate
+        >
+            <input type="hidden" name="lang" value={lang} />
+            <div class="trampa" aria-hidden="true">
+                <label
+                    >Web <input
+                        type="text"
+                        name="web"
+                        tabindex="-1"
+                        autocomplete="off"
+                    /></label
+                >
+            </div>
+
+            <div class="campo">
+                <label for="nombre">{r.name}</label>
+                <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    maxlength="100"
+                />
+            </div>
+
+            <div class="campo">
+                <label for="telefono">{r.phone}</label>
+                <input
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    autocomplete="tel"
+                    required
+                    maxlength="30"
+                />
+            </div>
+
+            <div class="campo">
+                <label for="email">{r.email}</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    maxlength="150"
+                />
+            </div>
+
+            <div class="fila">
+                <div class="campo">
+                    <label for="edad">{r.age}</label>
+                    <input
+                        id="edad"
+                        name="edad"
+                        type="number"
+                        inputmode="numeric"
+                        min={req.min_age}
+                        max={req.max_age}
+                        required
+                    />
+                </div>
+                <div class="campo">
+                    <label for="anos_carnet">{r.licenceYears}</label>
+                    <input
+                        id="anos_carnet"
+                        name="anos_carnet"
+                        type="number"
+                        inputmode="numeric"
+                        min={req.min_license_years}
+                        max="60"
+                        required
+                    />
+                </div>
+            </div>
+            <p class="nota">{rellenar(r.conditions)}</p>
+            <div class="campo">
+                <label for="vuelo">{r.flight}</label>
+                <input id="vuelo" name="vuelo" type="text" maxlength="30" />
+            </div>
+            <div class="campo">
+                <label for="comentarios">{r.comments}</label>
+                <textarea
+                    id="comentarios"
+                    name="comentarios"
+                    rows="3"
+                    maxlength="1000"></textarea>
+            </div>
+            <label class="casilla">
+                <input type="checkbox" name="privacidad" required />
+                <span>{r.privacy}</span>
+            </label>
+
+            <p class="error" role="alert" data-mensaje></p>
+            <button class="boton" type="submit">{r.submit}</button>
+        </form>
+    </div>
+</Base>
+
+<script>
+    import "../../scripts/solicitud";
+</script>
