@@ -1,0 +1,134 @@
+{
+    "meta": {
+        "title": "Tropic Rent a Car · Mietwagen auf Teneriffa",
+        "description": "Mieten Sie Ihr Auto auf Teneriffa bei Tropic Rent a Car. Klare Preise, Versicherung inklusive und direkter Service."
+    },
+    "nav": {
+        "fleet": "Flotte und Preise",
+        "how": "So buchen Sie",
+        "contact": "Kontakt",
+        "language": "Sprache"
+    },
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L."
+    },
+    "search": {
+        "title": "Auto suchen",
+        "lead": "Wählen Sie Ihre Daten und sehen Sie sofort den Gesamtpreis.",
+        "pickupPlace": "Abholort",
+        "returnPlace": "Rückgabeort",
+        "sameAsPickup": "Wie Abholort",
+        "pickupDate": "Abholdatum",
+        "pickupTime": "Abholzeit",
+        "returnDate": "Rückgabedatum",
+        "returnTime": "Rückgabezeit",
+        "submit": "Autos und Preise ansehen",
+        "errorOrder": "Die Rückgabe muss nach der Abholung liegen.",
+        "places": {
+            "office": "Büro Costa del Silencio",
+            "airportSouth": "Flughafen Teneriffa Süd",
+            "airportNorth": "Flughafen Teneriffa Nord",
+            "hotel": "Hotel oder Unterkunft"
+        }
+    },
+    "results": {
+        "title": "Wählen Sie Ihr Auto",
+        "group": "Gruppe",
+        "noData": "Die Suchdaten fehlen oder sind ungültig.",
+        "backToSearch": "Zurück zur Suche",
+        "changeSearch": "Suche ändern",
+        "pickup": "Abholung",
+        "return": "Rückgabe",
+        "dayOne": "Tag",
+        "dayMany": "Tage",
+        "seats": "Kindersitze",
+        "seatsHint": "{price} pro Sitz und Tag",
+        "perDay": "pro Tag",
+        "total": "Gesamt",
+        "taxesIncluded": "Steuern und Versicherung inklusive",
+        "minDays": "Mietbar ab {n} Tagen",
+        "noRate": "Kein Tarif für diese Mietdauer",
+        "request": "Dieses Auto anfragen",
+        "orSimilar": "oder ähnlich",
+        "seatsLabel": "Sitze",
+        "ac": "Klimaanlage",
+        "gearbox": {
+            "manual": "Schaltgetriebe",
+            "automatic": "Automatik",
+            "manual_or_automatic": "Schaltgetriebe oder Automatik"
+        },
+        "showModel": "{model} ansehen"
+    },
+    "request": {
+        "title": "Buchung anfragen",
+        "intro": "Prüfen Sie die Zusammenfassung und geben Sie Ihre Daten an. Das ist noch keine bestätigte Buchung: Wir melden uns bei Ihnen, um sie zu bestätigen.",
+        "summary": "Zusammenfassung",
+        "group": "Gruppe",
+        "pickup": "Abholung",
+        "return": "Rückgabe",
+        "days": "Tage",
+        "seats": "Kindersitze",
+        "total": "Gesamt",
+        "name": "Vor- und Nachname",
+        "phone": "Telefon",
+        "email": "E-Mail",
+        "age": "Alter des Fahrers",
+        "licenceYears": "Jahre Führerschein",
+        "flight": "Flugnummer (optional)",
+        "comments": "Anmerkungen (optional)",
+        "privacy": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie",
+        "conditions": "Fahrer von {min} bis {max} Jahren mit mindestens {years} Jahren Führerschein.",
+        "submit": "Anfrage senden",
+        "sending": "Wird gesendet...",
+        "noData": "Die Suchdaten fehlen oder sind ungültig.",
+        "backToSearch": "Zurück zur Suche",
+        "errors": {
+            "nombre": "Geben Sie Ihren Namen ein.",
+            "telefono": "Geben Sie eine gültige Telefonnummer ein.",
+            "email": "Geben Sie eine gültige E-Mail-Adresse ein.",
+            "edad": "Das Alter des Fahrers muss zwischen {min} und {max} Jahren liegen.",
+            "carnet": "Mindestens {years} Jahre Führerschein sind erforderlich.",
+            "privacidad": "Sie müssen die Datenschutzerklärung akzeptieren.",
+            "busqueda": "Die Suchdaten sind ungültig. Bitte suchen Sie erneut.",
+            "grupo": "Das gewählte Auto ist ungültig. Bitte suchen Sie erneut.",
+            "precio": "Für diese Mietdauer gibt es keinen Tarif. Bitte suchen Sie erneut.",
+            "idioma": "Ungültige Sprache.",
+            "generic": "Wir konnten Ihre Anfrage nicht senden. Versuchen Sie es erneut oder rufen Sie uns an."
+        }
+    },
+    "thanks": {
+        "title": "Anfrage erhalten",
+        "text": "Ihre Anfrage wird bearbeitet. Wir haben Ihnen eine E-Mail zur Empfangsbestätigung geschickt und melden uns in Kürze, um die Buchung zu bestätigen.",
+        "home": "Zurück zur Startseite"
+    },
+    "hero": {
+        "title": "Mieten Sie Ihr Auto. Ohne Überraschungen.",
+        "lead": "Preis pro Tag inklusive Steuern und Versicherung. Sie senden die Anfrage, wir antworten und bestätigen sie mit Ihnen. Auf der Website zahlen Sie nichts.",
+        "points": [
+            "Steuern inklusive",
+            "Klimaanlage",
+            "Service in 5 Sprachen"
+        ]
+    },
+    "home": {
+        "fleetTitle": "Unsere Flotte und Tagespreise",
+        "fleetLead": "Eine Auswahl unserer 14 Gruppen. Steuern inklusive.",
+        "allGroups": "Alle 14 Gruppen ansehen",
+        "priceFrom": "pro Tag ab 7 Tagen",
+        "stepsTitle": "Buchen ist einfach",
+        "steps": [
+            {
+                "title": "Daten und Auto wählen",
+                "text": "Sie sehen sofort den Gesamtpreis, mit den Kindersitzen, die Sie brauchen."
+            },
+            {
+                "title": "Anfrage senden",
+                "text": "Nur Ihre Kontaktdaten. Sie erhalten eine E-Mail, dass Ihre Anfrage bearbeitet wird."
+            },
+            {
+                "title": "Wir bestätigen",
+                "text": "Wir sprechen mit Ihnen, um die Buchung abzuschließen."
+            }
+        ]
+    }
+}
