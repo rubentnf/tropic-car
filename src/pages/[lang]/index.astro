@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Buscador from "../../components/Buscador.astro";
 import { getDictionary, locales, type Locale } from "../../i18n/utils";
 
 export function getStaticPaths() {
@@ -15,6 +16,10 @@ const t = getDictionary(lang);
         <div class="contenedor">
             <h1>{t.hero.title}</h1>
             <p class="hero-lead">{t.hero.lead}</p>
+            <ul class="puntos">
+                {t.hero.points.map((punto) => <li>{punto}</li>)}
+            </ul>
         </div>
+        <Buscador lang={lang} />
     </section>
 </Base>
