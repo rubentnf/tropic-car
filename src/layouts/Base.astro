@@ -2,8 +2,10 @@
 import "@fontsource-variable/archivo";
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import Consentimiento from "../components/Consentimiento.astro";
 import logo from "../assets/logo.png";
 import { empresa } from "../data/empresa";
+import { getContenido } from "../i18n/contenido";
 import {
     getDictionary,
     locales,
@@ -25,6 +27,7 @@ interface Props {
 
 const { lang, title, description, ruta = "", noindex = false } = Astro.props;
 const t = getDictionary(lang);
+const pie = getContenido(lang).footer;
 
 const absoluta = (l: Locale) =>
     new URL(localizedPath(l, ruta), Astro.site ?? Astro.url).href;
@@ -134,7 +137,20 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                         )
                     }
                 </div>
+                <nav class="pie-enlaces" aria-label="Legal">
+                    <a href={localizedPath(lang, "aviso-legal")}
+                        >{pie.avisoLegal}</a
+                    >
+                    <a href={localizedPath(lang, "privacidad")}
+                        >{pie.privacidad}</a
+                    >
+                    <a href={localizedPath(lang, "cookies")}>{pie.cookies}</a>
+                    <button type="button" class="enlace" data-configurar-cookies
+                        >{pie.configurarCookies}</button
+                    >
+                </nav>
             </div>
         </footer>
+        <Consentimiento lang={lang} />
     </body>
 </html>
