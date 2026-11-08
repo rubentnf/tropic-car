@@ -1,7 +1,16 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Buscador from "../../components/Buscador.astro";
-import { getDictionary, locales, type Locale } from "../../i18n/utils";
+import PasosReserva from "../../components/PasosReserva.astro";
+import TarjetaFlota from "../../components/TarjetaFlota.astro";
+import tarifas from "../../data/tarifas.json";
+import {
+    getDictionary,
+    locales,
+    localizedPath,
+    type Locale,
+} from "../../i18n/utils";
+import type { Tarifas } from "../../lib/tipos";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({ params: { lang } }));
@@ -9,17 +18,49 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 const t = getDictionary(lang);
+const data = tarifas as unknown as Tarifas;
+// Selección para la portada: los grupos más pedidos. Los 14 están en la página Flota
+const destacados = ["A", "B", "C", "F", "H", "L"];
+const grupos = destacados.flatMap((id) =>
+    data.groups.filter((g) => g.id === id),
+);
 ---
 
 <Base lang={lang}>
     <section class="hero">
         <div class="contenedor">
-            <h1>{t.hero.title}</h1>
-            <p class="hero-lead">{t.hero.lead}</p>
-            <ul class="puntos">
-                {t.hero.points.map((punto) => <li>{punto}</li>)}
-            </ul>
+            <div>
+                <h1>{t.hero.title}</h1>
+                <p class="hero-lead">{t.hero.lead}</p>
+                <ul class="puntos">
+                    {t.hero.points.map((punto) => <li>{punto}</li>)}
+                </ul>
+            </div>
+            <Buscador lang={lang} />
         </div>
-        <Buscador lang={lang} />
     </section>
+
+    <section class="seccion" aria-labelledby="titulo-flota">
+        <div class="contenedor">
+            <div class="seccion-cabecera">
+                <div>
+                    <h2 id="titulo-flota">{t.home.fleetTitle}</h2>
+                    <p class="seccion-lead">{t.home.fleetLead}</p>
+                </div>
+                <a
+                    class="boton boton-secundario"
+                    href={localizedPath(lang, "flota")}>{t.home.allGroups}</a
+                >
+            </div>
+            <div class="rejilla-flota">
+                {
+                    grupos.map((grupo) => (
+                        <TarjetaFlota lang={lang} grupo={grupo} />
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <PasosReserva lang={lang} />
 </Base>

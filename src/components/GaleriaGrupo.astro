@@ -1,0 +1,95 @@
+---
+import { getImage } from "astro:assets";
+import { fotoModelo } from "../data/fotos";
+import { getDictionary, type Locale } from "../i18n/utils";
+import type { Grupo } from "../lib/tipos";
+
+interface Props {
+    lang: Locale;
+    grupo: Grupo;
+}
+const { lang, grupo } = Astro.props;
+const r = getDictionary(lang).results;
+
+// Una foto grande y una miniatura por cada modelo del grupo que tenga foto.
+const fotos = await Promise.all(
+    grupo.models
+        .flatMap((m) => {
+            const foto = fotoModelo(m.name);
+            return foto ? [{ nombre: m.name, foto }] : [];
+        })
+        .map(async ({ nombre, foto }) => ({
+            nombre,
+            grande: await getImage({ src: foto, width: 640, format: "webp" }),
+            pequena: await getImage({ src: foto, width: 112, format: "webp" }),
+        })),
+);
+const primera = fotos[0];
+---
+
+{
+    primera && (
+        <div class="galeria" data-galeria>
+            <div class="galeria-foto">
+                <img
+                    data-principal
+                    src={primera.grande.src}
+                    width={primera.grande.attributes.width}
+                    height={primera.grande.attributes.height}
+                    alt={primera.nombre}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+            {fotos.length > 1 && (
+                <div class="miniaturas">
+                    {fotos.map((f, i) => (
+                        <button
+                            type="button"
+                            class="miniatura"
+                            data-miniatura
+                            data-grande={f.grande.src}
+                            data-nombre={f.nombre}
+                            aria-pressed={i === 0 ? "true" : "false"}
+                            aria-label={r.showModel.replace(
+                                "{model}",
+                                f.nombre,
+                            )}
+                        >
+                            <img
+                                src={f.pequena.src}
+                                width={f.pequena.attributes.width}
+                                height={f.pequena.attributes.height}
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </button>
+                    ))}
+                </div>
+            )}
+        </div>
+    )
+}
+
+<script>
+    // Al pulsar una miniatura se cambia la foto grande de esa misma tarjeta.
+    document.addEventListener("click", (e) => {
+        const boton = (e.target as HTMLElement).closest<HTMLButtonElement>(
+            "[data-miniatura]",
+        );
+        const galeria = boton?.closest<HTMLElement>("[data-galeria]");
+        if (!boton || !galeria) return;
+        const principal =
+            galeria.querySelector<HTMLImageElement>("[data-principal]");
+        if (principal) {
+            principal.src = boton.dataset.grande ?? principal.src;
+            principal.alt = boton.dataset.nombre ?? "";
+        }
+        galeria
+            .querySelectorAll("[data-miniatura]")
+            .forEach((b) =>
+                b.setAttribute("aria-pressed", String(b === boton)),
+            );
+    });
+</script>
