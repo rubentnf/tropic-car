@@ -1,0 +1,73 @@
+---
+import Base from "../../layouts/Base.astro";
+import { empresa } from "../../data/empresa";
+import { getContenido } from "../../i18n/contenido";
+import { locales, type Locale } from "../../i18n/utils";
+
+export function getStaticPaths() {
+    return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const c = getContenido(lang).contacto;
+---
+
+<Base lang={lang} ruta="contacto" title={`${c.titulo} · Tropic Rent a Car`}>
+    <div class="contenedor pagina">
+        <h1>{c.titulo}</h1>
+
+        <dl class="datos-contacto">
+            <dt>{c.direccion}</dt><dd>{empresa.domicilio}</dd>
+            <dt>{c.telefono}</dt><dd>{empresa.telefono}</dd>
+            <dt>{c.email}</dt><dd>{empresa.email}</dd>
+            <dt>{c.horario}</dt><dd>{empresa.horario[lang]}</dd>
+        </dl>
+
+        <p>
+            <a
+                class="boton"
+                href={empresa.mapaEnlace}
+                target="_blank"
+                rel="noopener noreferrer">{c.abrirMapa}</a
+            >
+        </p>
+
+        {
+            empresa.mapaEmbedUrl && (
+                <div class="mapa" data-mapa data-url={empresa.mapaEmbedUrl}>
+                    <button
+                        type="button"
+                        class="boton boton-secundario"
+                        data-cargar-mapa
+                    >
+                        {c.cargarMapa}
+                    </button>
+                </div>
+            )
+        }
+
+        <h2>{c.preguntasTitulo}</h2>
+        <div class="preguntas">
+            {
+                c.preguntas.map((p) => (
+                    <details>
+                        <summary>{p.pregunta}</summary>
+                        <p>{p.respuesta}</p>
+                    </details>
+                ))
+            }
+        </div>
+    </div></Base
+>
+
+<script>
+    const mapa = document.querySelector<HTMLElement>("[data-mapa]");
+    mapa?.querySelector("[data-cargar-mapa]")?.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = mapa.dataset.url ?? "";
+        iframe.title = "Mapa";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer";
+        mapa.replaceChildren(iframe);
+    });
+</script>
