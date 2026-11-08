@@ -1,0 +1,85 @@
+---
+import Base from "../../layouts/Base.astro";
+import TarjetaGrupo from "../../components/TarjetaGrupo.astro";
+import tarifas from "../../data/tarifas.json";
+import {
+    getDictionary,
+    locales,
+    localizedPath,
+    type Locale,
+} from "../../i18n/utils";
+import { formatearEuros } from "../../lib/formato";
+import type { Tarifas } from "../../lib/tipos";
+
+export function getStaticPaths() {
+    return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const t = getDictionary(lang);
+const r = t.results;
+const data = tarifas as unknown as Tarifas;
+const precioSilla = formatearEuros(data.meta.baby_seat_per_day_eur, lang);
+
+const textos = {
+    dayOne: r.dayOne,
+    dayMany: r.dayMany,
+    pickup: r.pickup,
+    return: r.return,
+    minDays: r.minDays,
+    noRate: r.noRate,
+    place_office: t.search.places.office,
+    place_airportSouth: t.search.places.airportSouth,
+    place_airportNorth: t.search.places.airportNorth,
+    place_hotel: t.search.places.hotel,
+};
+---
+
+<Base
+    lang={lang}
+    ruta="resultados"
+    noindex
+    title={`${r.title} · Tropic Rent a Car`}
+>
+    <div
+        class="contenedor resultados"
+        data-resultados
+        data-lang={lang}
+        data-solicitud={localizedPath(lang, "solicitud")}
+        data-textos={JSON.stringify(textos)}
+    >
+        <h1>{r.title}</h1>
+
+        <div data-sin-datos hidden>
+            <p class="error">{r.noData}</p>
+            <a class="boton" href={localizedPath(lang)}>{r.backToSearch}</a>
+        </div>
+
+        <div data-con-datos hidden>
+            <div class="barra">
+                <p data-resumen></p>
+                <a href={localizedPath(lang)}>{r.changeSearch}</a>
+            </div>
+
+            <div class="campo campo-sillas">
+                <label for="sillas">{r.seats}</label>
+                <select id="sillas" data-sillas>
+                    {[0, 1, 2, 3].map((n) => <option value={n}>{n}</option>)}
+                </select>
+                <small>{r.seatsHint.replace("{price}", precioSilla)}</small>
+            </div>
+
+            <div class="lista-grupos">
+                {
+                    data.groups.map((grupo) => (
+                        <TarjetaGrupo lang={lang} grupo={grupo} />
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Base>
+
+<script>
+    import "../../scripts/resultados";
+</script>

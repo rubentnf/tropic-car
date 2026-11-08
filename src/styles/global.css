@@ -625,3 +625,93 @@ a {
 .preguntas p {
     margin: .5rem 0 0;
 }
+
+/* ---------- Resultados ---------- */
+.resultados {
+    padding-top: 2rem;
+}
+
+.resultados h1,
+.solicitud h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -.02em;
+}
+
+.barra {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+    padding: .875rem 1rem;
+    background: var(--amarillo-suave);
+    border-radius: var(--radio);
+    margin-bottom: 1.25rem;
+}
+
+.barra p {
+    margin: 0;
+}
+
+.campo-sillas {
+    max-width: 14rem;
+    margin-bottom: 1.25rem;
+}
+
+.lista-grupos {
+    display: grid;
+    gap: 1rem;
+}
+
+.tarjeta {
+    display: grid;
+    gap: 1rem;
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-grande);
+    background: var(--blanco);
+    padding: 1rem;
+}
+
+.tarjeta-info,
+.tarjeta-precio {
+    display: grid;
+    gap: .5rem;
+    align-items: start;
+}
+
+.tarjeta-grupo {
+    margin: 0;
+}
+
+.tarjeta h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.importe-dia {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.importe-dia strong {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.importe-total {
+    margin: 0;
+}
+
+.tarjeta [hidden],
+.resultados [hidden] {
+    display: none;
+}
+
+@media (min-width: 48rem) {
+    .tarjeta {
+        grid-template-columns: 14rem 1fr 15rem;
+        align-items: center;
+    }
+}
