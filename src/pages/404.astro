@@ -1,0 +1,45 @@
+---
+import "@fontsource-variable/archivo";
+import "../styles/global.css";
+import { locales } from "../i18n/utils";
+
+const nombres = {
+    es: "Español",
+    en: "English",
+    de: "Deutsch",
+    fr: "Français",
+    it: "Italiano",
+} as const;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <title>404 · Tropic Rent a Car</title>
+    </head>
+    <body>
+        <div class="contenedor pagina">
+            <h1>404</h1>
+            <p>
+                Esta página no existe · This page does not exist · Diese Seite
+                existiert nicht · Cette page n’existe pas · Questa pagina non
+                esiste
+            </p>
+            <p style="display:flex;flex-wrap:wrap;gap:.75rem">
+                {
+                    locales.map((l, i) => (
+                        <a
+                            class={i === 0 ? "boton" : "boton boton-secundario"}
+                            href={`/${l}/`}
+                        >
+                            {nombres[l]}
+                        </a>
+                    ))
+                }
+            </p>
+        </div>
+    </body>
+</html>
