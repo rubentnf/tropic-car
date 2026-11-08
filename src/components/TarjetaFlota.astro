@@ -1,0 +1,71 @@
+---
+import GaleriaGrupo from "./GaleriaGrupo.astro";
+import { getContenido } from "../i18n/contenido";
+import { getDictionary, type Locale } from "../i18n/utils";
+import { formatearEuros } from "../lib/formato";
+import type { Grupo, Tramo } from "../lib/tipos";
+
+interface Props {
+    lang: Locale;
+    grupo: Grupo;
+    /** Muestra los cuatro tramos de precio (página Flota). */
+    detalle?: boolean;
+}
+const { lang, grupo, detalle = false } = Astro.props;
+const t = getDictionary(lang);
+const r = t.results;
+const tramosTexto = getContenido(lang).flota.tramos;
+
+const modelos = grupo.models.map((m) => m.name).join(" · ");
+const plazas = grupo.models
+    .map((m) => m.pax)
+    .find((p) => typeof p === "number");
+const precioDesde = grupo.price_per_day_eur["7+"];
+const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
+---
+
+<article class="tarjeta-flota" data-grupo={grupo.id}>
+    <div class="tarjeta-flota-cabecera">
+        <span class="insignia">{r.group} {grupo.id}</span>
+        <span class="cambio">{r.gearbox[grupo.gearbox]}</span>
+    </div>
+    <GaleriaGrupo lang={lang} grupo={grupo} />
+    <h3>{modelos} <small>{r.orSimilar}</small></h3>
+    <ul class="etiquetas">
+        {grupo.air_conditioning && <li>{r.ac}</li>}
+        {
+            plazas !== undefined && (
+                <li>
+                    {plazas} {r.seatsLabel}
+                </li>
+            )
+        }
+    </ul>
+    {
+        precioDesde !== null && (
+            <p class="precio-desde">
+                <strong>{formatearEuros(precioDesde, lang)}</strong>{" "}
+                <span>{t.home.priceFrom}</span>
+            </p>
+        )
+    }
+    {
+        detalle && (
+            <ul class="tramos">
+                {tramos.map((tr) => (
+                    <li>
+                        <span>{tramosTexto[tr]}</span>
+                        <strong>
+                            {grupo.price_per_day_eur[tr] === null
+                                ? "-"
+                                : formatearEuros(
+                                      grupo.price_per_day_eur[tr] as number,
+                                      lang,
+                                  )}
+                        </strong>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+</article>
