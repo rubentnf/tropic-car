@@ -715,3 +715,81 @@ a {
         align-items: center;
     }
 }
+
+/* ---------- Solicitud ---------- */
+.solicitud {
+    padding-top: 2rem;
+    max-width: 40rem;
+}
+
+.solicitud [hidden] {
+    display: none;
+}
+
+.resumen-solicitud {
+    background: var(--amarillo-suave);
+    border-radius: var(--radio);
+    padding: 1rem 1.25rem;
+    margin-block-start: 1.25rem;
+}
+
+.resumen-solicitud h2 {
+    margin: 0 0 .5rem;
+    font-size: 1.1rem;
+}
+
+.resumen-solicitud dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: .25rem 1rem;
+    margin: 0;
+}
+
+.resumen-solicitud dt {
+    font-weight: 700;
+}
+
+.resumen-solicitud dd {
+    margin: 0;
+}
+
+.formulario {
+    display: grid;
+    gap: 1rem;
+}
+
+.formulario .fila {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.formulario textarea {
+    font: inherit;
+    padding: .7rem .75rem;
+    border: 1px solid var(--campo-borde);
+    border-radius: var(--radio-campo);
+    resize: vertical;
+    width: 100%;
+    background: var(--blanco);
+}
+
+.casilla {
+    display: flex;
+    gap: .6rem;
+    align-items: flex-start;
+}
+
+.casilla input {
+    margin-top: .3rem;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.trampa {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
