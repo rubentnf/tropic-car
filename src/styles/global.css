@@ -568,3 +568,60 @@ a {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* ---------- Páginas de contenido ---------- */
+.pagina {
+    padding-top: 2rem;
+}
+
+.pagina h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -.02em;
+}
+
+.texto-legal {
+    max-width: 46rem;
+}
+
+.texto-legal h2 {
+    margin: 1.75rem 0 .5rem;
+    font-size: 1.2rem;
+}
+
+.datos-contacto {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: .4rem 1.25rem;
+    margin: 0 0 1.25rem;
+}
+
+.datos-contacto dt {
+    font-weight: 700;
+}
+
+.datos-contacto dd {
+    margin: 0;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 22rem;
+    border: 0;
+    border-radius: var(--radio);
+}
+
+.preguntas details {
+    border-bottom: 1px solid var(--linea);
+    padding: .75rem 0;
+}
+
+.preguntas summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.preguntas p {
+    margin: .5rem 0 0;
+}
