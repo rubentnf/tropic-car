@@ -27,6 +27,8 @@ export default defineConfig({
       RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       EMAIL_DESTINO: envField.string({ context: 'server', access: 'secret', default: 'ruben.tnf@gmail.com' }),
       EMAIL_ORIGEN: envField.string({ context: 'server', access: 'secret', default: 'Tropic Rent a Car <onboarding@resend.dev>' }),
+      PUBLIC_UMAMI_SRC: envField.string({ context: 'client', access: 'public', optional: true }),
+      PUBLIC_UMAMI_WEBSITE_ID: envField.string({ context: 'client', access: 'public', optional: true }),
     }
   }
 });

@@ -1,0 +1,48 @@
+---
+import Base from "../../layouts/Base.astro";
+import { empresa } from "../../data/empresa";
+import { getContenido, rellenarMarcadores } from "../../i18n/contenido";
+import { locales, type Locale } from "../../i18n/utils";
+import { CLAVES, PAGINAS, type Pagina } from "../../lib/paginasLegales";
+
+export function getStaticPaths() {
+    return locales.flatMap((lang) =>
+        PAGINAS.map((pagina) => ({ params: { lang, pagina } })),
+    );
+}
+
+const lang = Astro.params.lang as Locale;
+const pagina = Astro.params.pagina as Pagina;
+const legal = getContenido(lang).legal;
+const clave = CLAVES[pagina];
+const secciones = legal[clave];
+const titulo = legal.titulos[clave];
+
+const valores = {
+    razonSocial: empresa.razonSocial,
+    nombreComercial: empresa.nombreComercial,
+    cif: empresa.cif,
+    domicilio: empresa.domicilio,
+    registroMercantil: empresa.registroMercantil,
+    email: empresa.email,
+    telefono: empresa.telefono,
+    herramienta: "Umami",
+};
+---
+
+<Base lang={lang} ruta={pagina} title={`${titulo} · Tropic Rent a Car`}>
+    <div class="contenedor pagina texto-legal">
+        <h1>{titulo}</h1>
+        <p class="nota">{legal.aviso}</p>
+        {
+            secciones.map((s) => (
+                <section>
+                    <h2>{s.titulo}</h2>
+                    {s.parrafos.map((p) => (
+                        <p>{rellenarMarcadores(p, valores)}</p>
+                    ))}
+                </section>
+            ))
+        }
+    </div>
+</Base>

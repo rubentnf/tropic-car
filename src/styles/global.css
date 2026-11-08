@@ -793,3 +793,33 @@ a {
     height: 1px;
     overflow: hidden;
 }
+
+/* ---------- Aviso de cookies ---------- */
+.consentimiento {
+    position: fixed;
+    inset: auto 1rem 1rem 1rem;
+    max-width: 36rem;
+    margin-inline: auto;
+    background: var(--blanco);
+    border: 2px solid var(--carbon);
+    border-radius: var(--radio);
+    padding: 1rem 1.25rem;
+    box-shadow: var(--sombra);
+    display: grid;
+    gap: .75rem;
+    z-index: 10;
+}
+
+.consentimiento[hidden] {
+    display: none;
+}
+
+.consentimiento p {
+    margin: 0;
+}
+
+.consentimiento-botones {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+}

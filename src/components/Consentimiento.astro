@@ -1,0 +1,91 @@
+---
+import { PUBLIC_UMAMI_SRC, PUBLIC_UMAMI_WEBSITE_ID } from "astro:env/client";
+import { getContenido } from "../i18n/contenido";
+import type { Locale } from "../i18n/utils";
+
+interface Props {
+    lang: Locale;
+}
+const { lang } = Astro.props;
+const c = getContenido(lang).consentimiento;
+const activo = Boolean(PUBLIC_UMAMI_WEBSITE_ID);
+---
+
+{
+    activo && (
+        <div
+            class="consentimiento"
+            data-consentimiento
+            data-umami-id={PUBLIC_UMAMI_WEBSITE_ID}
+            data-umami-src={PUBLIC_UMAMI_SRC}
+            hidden
+            role="dialog"
+            aria-label="Cookies"
+        >
+            <p>{c.texto}</p>
+            <div class="consentimiento-botones">
+                <button class="boton" type="button" data-aceptar>
+                    {c.aceptar}
+                </button>
+                <button
+                    class="boton boton-secundario"
+                    type="button"
+                    data-rechazar
+                >
+                    {c.rechazar}
+                </button>
+            </div>
+        </div>
+    )
+}
+
+<script>
+    const CLAVE = "consentimiento-estadisticas";
+    const caja = document.querySelector<HTMLElement>("[data-consentimiento]");
+
+    function leer(): string | null {
+        try {
+            return localStorage.getItem(CLAVE);
+        } catch {
+            return null;
+        }
+    }
+    function guardar(valor: "si" | "no"): void {
+        try {
+            localStorage.setItem(CLAVE, valor);
+        } catch {
+            /* sin almacenamiento: se vuelve a preguntar */
+        }
+    }
+    function cargarEstadisticas(): void {
+        if (!caja || document.querySelector("script[data-umami]")) return;
+        const s = document.createElement("script");
+        s.defer = true;
+        s.src = caja.dataset.umamiSrc ?? "";
+        s.dataset.websiteId = caja.dataset.umamiId ?? "";
+        s.dataset.umami = "1";
+        document.head.append(s);
+    }
+
+    if (caja) {
+        const estado = leer();
+        if (estado === "si") cargarEstadisticas();
+        if (estado === null) caja.hidden = false;
+
+        caja.querySelector("[data-aceptar]")?.addEventListener("click", () => {
+            guardar("si");
+            caja.hidden = true;
+            cargarEstadisticas();
+        });
+        caja.querySelector("[data-rechazar]")?.addEventListener("click", () => {
+            guardar("no");
+            caja.hidden = true;
+        });
+        // Enlace "Configurar cookies" del pie: vuelve a mostrar el aviso.
+        document
+            .querySelector("[data-configurar-cookies]")
+            ?.addEventListener("click", () => {
+                caja.hidden = false;
+            });
+    }
+</script>
