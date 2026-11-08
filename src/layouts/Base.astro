@@ -1,0 +1,140 @@
+---
+import "@fontsource-variable/archivo";
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+import { empresa } from "../data/empresa";
+import {
+    getDictionary,
+    locales,
+    localizedPath,
+    regiones,
+    type Locale,
+} from "../i18n/utils";
+import { datosEstructurados } from "../lib/seo";
+
+interface Props {
+    lang: Locale;
+    title?: string;
+    description?: string;
+    /** Ruta sin idioma, p. ej. "flota". Vacía para la portada. */
+    ruta?: string;
+    /** Páginas que no deben salir en buscadores (resultados, solicitud, gracias). */
+    noindex?: boolean;
+}
+
+const { lang, title, description, ruta = "", noindex = false } = Astro.props;
+const t = getDictionary(lang);
+
+const absoluta = (l: Locale) =>
+    new URL(localizedPath(l, ruta), Astro.site ?? Astro.url).href;
+const textoTitulo = title ?? t.meta.title;
+const textoDescripcion = description ?? t.meta.description;
+const esPortada = ruta === "";
+const pendiente = (valor: string) => valor.includes("PENDIENTE");
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{textoTitulo}</title>
+        <meta name="description" content={textoDescripcion} />
+        {noindex && <meta name="robots" content="noindex" />}
+        <link rel="canonical" href={absoluta(lang)} />
+        {
+            locales.map((l) => (
+                <link rel="alternate" hreflang={l} href={absoluta(l)} />
+            ))
+        }
+        <link rel="alternate" hreflang="x-default" href={absoluta("es")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Tropic Rent a Car" />
+        <meta property="og:title" content={textoTitulo} />
+        <meta property="og:description" content={textoDescripcion} />
+        <meta property="og:url" content={absoluta(lang)} />
+        <meta property="og:locale" content={regiones[lang].og} />
+        {
+            esPortada && (
+                <script
+                    type="application/ld+json"
+                    set:html={JSON.stringify(
+                        datosEstructurados(absoluta(lang)),
+                    )}
+                />
+            )
+        }
+    </head>
+    <body>
+        <header class="cabecera">
+            <div class="contenedor">
+                <a
+                    class="logo"
+                    href={localizedPath(lang)}
+                    aria-label="Tropic Rent a Car"
+                >
+                    <Image
+                        src={logo}
+                        alt="Tropic Rent a Car"
+                        height={112}
+                        densities={[1, 2]}
+                        loading="eager"
+                    />
+                </a>
+                <nav class="nav" aria-label="Principal">
+                    <a href={localizedPath(lang, "flota")}>{t.nav.fleet}</a>
+                    <a href={`${localizedPath(lang)}#como`}>{t.nav.how}</a>
+                    <a href={localizedPath(lang, "contacto")}>{t.nav.contact}</a
+                    >
+                    <span
+                        class="idiomas"
+                        role="group"
+                        aria-label={t.nav.language}
+                    >
+                        {
+                            locales.map((l) => (
+                                <a
+                                    href={localizedPath(l, ruta)}
+                                    hreflang={l}
+                                    lang={l}
+                                    aria-current={
+                                        l === lang ? "true" : undefined
+                                    }
+                                >
+                                    {l.toUpperCase()}
+                                </a>
+                            ))
+                        }
+                    </span>
+                </nav>
+            </div>
+        </header>
+        <main><slot /></main>
+        <footer class="pie">
+            <div class="contenedor pie-contenido">
+                <div class="pie-datos">
+                    <strong
+                        >© {new Date().getFullYear()} {t.footer.rights}</strong
+                    >
+                    {
+                        !pendiente(empresa.telefono) && (
+                            <a
+                                href={`tel:${empresa.telefono.replace(/\s/g, "")}`}
+                            >
+                                {empresa.telefono}
+                            </a>
+                        )
+                    }
+                    {
+                        !pendiente(empresa.email) && (
+                            <a href={`mailto:${empresa.email}`}>
+                                {empresa.email}
+                            </a>
+                        )
+                    }
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
