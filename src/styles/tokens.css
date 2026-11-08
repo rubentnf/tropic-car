@@ -1,0 +1,25 @@
+:root {
+    /* Colores */
+    --fondo: #faf7ee;
+    --superficie: #f3eedf;
+    --blanco: #ffffff;
+    --texto: #232321;
+    --texto-2: #5c5b55;
+    --linea: #e3ded0;
+    --campo-borde: #cfc9b8;
+    --amarillo: #f5c842;
+    --amarillo-suave: #fbf0c7;
+    --amarillo-fuerte: #e0a800;
+    --carbon: #232321;
+    --error: #b42318;
+    -foco: #1b5fd1;
+
+    /* Tipografía */
+    --fuente: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    /* Forma */
+    --radio: 14px;
+    --radio-campo: 10px;
+    --radio-grande: 18px;
+    --sombra: 0 10px 30px rgba(35 35 33 / 0.1);
+}
