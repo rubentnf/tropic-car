@@ -17,7 +17,7 @@ const tramosTexto = getContenido(lang).flota.tramos;
 const modelos = grupo.models.map((m) => m.name).join(" · ");
 const plazas = grupo.models
     .map((m) => m.pax)
-    .find((p) => typeof p === "number");
+    .find((p) => p !== null && p !== undefined && String(p).trim() !== "");
 const precioDesde = grupo.price_per_day_eur["7+"];
 const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
 ---
@@ -40,7 +40,7 @@ const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
         }
     </ul>
     {
-        precioDesde !== null && (
+        precioDesde != null && (
             <p class="precio-desde">
                 <strong>{formatearEuros(precioDesde, lang)}</strong>{" "}
                 <span>{t.home.priceFrom}</span>
@@ -53,8 +53,8 @@ const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
                 <li>
                     <span>{tramosTexto[tr]}</span>
                     <strong>
-                        {grupo.price_per_day_eur[tr] === null
-                            ? "-"
+                        {grupo.price_per_day_eur[tr] == null
+                            ? "—"
                             : formatearEuros(
                                   grupo.price_per_day_eur[tr] as number,
                                   lang,

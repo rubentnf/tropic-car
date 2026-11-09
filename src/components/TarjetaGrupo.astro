@@ -13,7 +13,7 @@ const r = getDictionary(lang).results;
 const modelos = grupo.models.map((m) => m.name).join(" · ");
 const plazas = grupo.models
     .map((m) => m.pax)
-    .find((p) => typeof p === "number");
+    .find((p) => p !== null && p !== undefined && String(p).trim() !== "");
 ---
 
 <article class="tarjeta" data-grupo={grupo.id}>

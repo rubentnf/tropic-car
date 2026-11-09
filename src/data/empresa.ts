@@ -1,26 +1,23 @@
 import type { Locale } from '../i18n/utils';
+import datos from './empresa.json';
+
+export interface Empresa {
+    razonSocial: string;
+    nombreComercial: string;
+    cif: string;
+    domicilio: string;
+    registroMercantil: string;
+    email: string;
+    telefono: string;
+    horario: Record<Locale, string>;
+    /** Enlace a Google Maps: funciona sin claves ni cookies hasta que el usuario lo abre. */
+    mapaEnlace: string;
+    /** URL para incrustar el mapa (opcional). Vacío = no se muestra el mapa incrustado. */
+    mapaEmbedUrl: string;
+}
 
 /**
- * Datos de la empresa. Todo lo que pone PENDIENTE hay que pedírselo al cliente:
- * se usa en el pie, en contacto y en los textos legales.
+ * Datos de la empresa. Viven en empresa.json (se pueden editar desde el panel /admin/).
+ * Todo lo que pone PENDIENTE hay que pedírselo a Eduardo: se usa en el pie, en contacto y en los textos legales.
  */
-export const empresa = {
-    razonSocial: 'Autos Tropic Canarias S.L.',
-    nombreComercial: 'Tropic Rent a Car',
-    cif: '[CIF PENDIENTE]',
-    domicilio: 'C.C. El Trébol, Costa del Silencio, Tenerife, 38630',
-    registroMercantil: '[DATOS DEL REGISTRO MERCANTIL PENDIENTES]',
-    email: 'tropiccanarias@hotmail.com',
-    telefono: '+34 922 731 565',
-    horario: {
-        es: '[HORARIO DE LA OFICINA PENDIENTE]',
-        en: '[OFFICE HOURS PENDING]',
-        de: '[ÖFFNUNGSZEITEN AUSSTEHEND]',
-        fr: '[HORAIRES À PRÉCISER]',
-        it: '[ORARI DA DEFINIRE]',
-    } satisfies Record<Locale, string>,
-    /** Enlace a Google Maps: funciona sin claves ni cookies hasta que el usuario lo abre. */
-    mapaEnlace: 'https://maps.app.goo.gl/fnmsZeTAEaGCvEZq5',
-    /** URL para incrustrar el mapa (opcional). Vacío = no se muestra el mapa incrustrado. */
-    mapaEmbedUrl: '',
-};
+export const empresa: Empresa = datos;

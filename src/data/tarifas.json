@@ -268,7 +268,7 @@
             "models": [
                 {
                     "name": "Fiat 500 Cabrio",
-                    "pax": 4
+                    "pax": "4"
                 }
             ],
             "gearbox": "manual",
@@ -288,7 +288,7 @@
             "models": [
                 {
                     "name": "VW T-Roc Cabrio",
-                    "pax": 4
+                    "pax": "4"
                 }
             ],
             "gearbox": "manual_or_automatic",
@@ -308,7 +308,7 @@
             "models": [
                 {
                     "name": "Audi A5 Cabrio",
-                    "pax": 4
+                    "pax": "4"
                 }
             ],
             "gearbox": "automatic",
@@ -328,11 +328,11 @@
             "models": [
                 {
                     "name": "VW Caddy",
-                    "pax": 7
+                    "pax": "7"
                 },
                 {
                     "name": "Renault Kangoo",
-                    "pax": 7
+                    "pax": "7"
                 }
             ],
             "gearbox": "manual_or_automatic",
@@ -352,15 +352,15 @@
             "models": [
                 {
                     "name": "VW Transporter",
-                    "pax": 9
+                    "pax": "9"
                 },
                 {
                     "name": "Renault Traffic",
-                    "pax": 9
+                    "pax": "9"
                 },
                 {
                     "name": "Nissan Nv300",
-                    "pax": 9
+                    "pax": "9"
                 }
             ],
             "gearbox": "manual",
@@ -380,7 +380,7 @@
             "models": [
                 {
                     "name": "Mercedes Vito",
-                    "pax": 9
+                    "pax": "9"
                 }
             ],
             "gearbox": "automatic",
