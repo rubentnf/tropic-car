@@ -2,13 +2,9 @@
 import Base from "../../layouts/Base.astro";
 import Buscador from "../../components/Buscador.astro";
 import PasosReserva from "../../components/PasosReserva.astro";
+import ResumenFlota from "../../components/ResumenFlota.astro";
 import Ventajas from "../../components/Ventajas.astro";
-import {
-    getDictionary,
-    locales,
-    localizedPath,
-    type Locale,
-} from "../../i18n/utils";
+import { getDictionary, locales, type Locale } from "../../i18n/utils";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({ params: { lang } }));
@@ -34,19 +30,7 @@ const t = getDictionary(lang);
 
     <Ventajas lang={lang} />
 
-    <section class="seccion" aria-labelledby="titulo-flota">
-        <div class="contenedor">
-            <div class="seccion-cabecera">
-                <div>
-                    <h2 id="titulo-flota">{t.home.fleetTitle}</h2>
-                    <p class="seccion-lead">{t.home.fleetLead}</p>
-                </div>
-                <a class="boton" href={localizedPath(lang, "flota")}
-                    >{t.home.allGroups}</a
-                >
-            </div>
-        </div>
-    </section>
+    <ResumenFlota lang={lang} />
 
     <PasosReserva lang={lang} />
 </Base>

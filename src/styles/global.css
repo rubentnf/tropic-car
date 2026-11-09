@@ -532,7 +532,7 @@ main:focus {
     border-color: var(--carbon);
 }
 
-/* ---------- Tarjetas de la flota (portada y página Flota) ---------- */
+/* ---------- Tarjetas de la página Flota ---------- */
 .rejilla-flota {
     display: grid;
     gap: 1.25rem;
@@ -559,6 +559,12 @@ main:focus {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    scroll-margin-top: 1rem;
+}
+
+/* El grupo al que se llega desde la portada. */
+.tarjeta-flota:target {
+    border-color: var(--carbon);
 }
 
 .tarjeta-flota-cabecera {
@@ -581,14 +587,14 @@ main:focus {
     color: var(--texto-2);
 }
 
-.tarjeta-flota :is(h2, h3) {
+.tarjeta-flota h2 {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 800;
     line-height: 1.3;
 }
 
-.tarjeta-flota :is(h2, h3) small,
+.tarjeta-flota h2 small,
 .tarjeta h2 small {
     display: block;
     font-weight: 500;
@@ -689,6 +695,99 @@ main:focus {
 
 .seccion-cabecera .seccion-lead {
     margin-bottom: 0;
+}
+
+/* Resumen de la flota: toda la tarjeta enlaza a su grupo en la página Flota. */
+.resumen-flota {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 64rem) {
+    .resumen-flota {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+.resumen-coche {
+    position: relative;
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio-grande);
+    padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.resumen-coche:hover {
+    border-color: var(--carbon);
+}
+
+.resumen-coche-foto {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    padding: .5rem;
+    background: var(--superficie);
+    border-radius: var(--radio);
+}
+
+.resumen-coche h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.resumen-coche h3 small {
+    display: block;
+    font-weight: 500;
+    font-size: .85rem;
+    color: var(--texto-2);
+}
+
+.resumen-coche a {
+    text-decoration: none;
+}
+
+.resumen-coche a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radio-grande);
+}
+
+.resumen-coche a:focus-visible {
+    outline: none;
+}
+
+.resumen-coche a:focus-visible::after {
+    outline: 3px solid var(--foco);
+    outline-offset: 2px;
+}
+
+.resumen-coche-datos {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--texto-2);
+}
+
+.resumen-coche .precio-desde strong {
+    font-size: 1.5rem;
+}
+
+/* Siempre debajo del importe, para que todas las tarjetas queden iguales. */
+.resumen-coche .precio-desde span {
+    flex-basis: 100%;
+    font-size: .85rem;
 }
 
 .pasos {
@@ -906,22 +1005,33 @@ main:focus {
     font-weight: 800;
 }
 
-.importe-dia {
+.importe-total {
     margin: 0;
-    font-size: 1.1rem;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    column-gap: .375rem;
+    gap: .15rem .6rem;
+}
+
+.importe-total span {
+    color: var(--texto-2);
+    font-weight: 600;
+}
+
+.importe-total strong {
+    font-size: 2.1rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.importe-dia {
+    margin: 0;
+    color: var(--texto-2);
 }
 
 .importe-dia strong {
-    font-size: 2rem;
-    font-weight: 900;
-}
-
-.importe-total {
-    margin: 0;
+    color: var(--texto);
+    font-weight: 800;
 }
 
 .tarjeta [hidden],
