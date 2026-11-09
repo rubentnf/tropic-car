@@ -20,6 +20,7 @@ export const de: Contenido = {
         mapaTitulo: 'Karte',
         preguntasTitulo: 'Häufige Fragen',
         preguntas: [
+            { pregunta: 'Wo kann ich das Auto abholen und zurückgeben?', respuesta: 'Auf der ganzen Insel: in unserem Büro in Costa del Silencio, an den Flughäfen, in den Häfen, in Hotels, Apartments und Privatadressen. Geben Sie Ort und Adresse in der Anfrage an, wir bestätigen Ihnen die Bedingungen.' },
             { pregunta: 'Welche Voraussetzungen muss der Fahrer erfüllen?', respuesta: 'Der Fahrer muss zwischen 25 und 75 Jahre alt sein und seit mindestens 5 Jahren einen Führerschein besitzen.' },
             { pregunta: 'Was ist im Preis enthalten?', respuesta: 'Steuern und Vollkaskoversicherung. Die Selbstbeteiligung beträgt 150 €, und auf Ihrer Karte wird kein Betrag blockiert.' },
             { pregunta: 'Ist meine Anfrage schon eine Buchung?', respuesta: 'Nein. Nach dem Absenden erhalten Sie eine E-Mail, dass sie bearbeitet wird; wir bestätigen sie telefonisch oder per E-Mail mit Ihnen.' },

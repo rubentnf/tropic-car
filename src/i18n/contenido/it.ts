@@ -20,6 +20,7 @@ export const it: Contenido = {
         mapaTitulo: 'Mappa',
         preguntasTitulo: 'Domande frequenti',
         preguntas: [
+            { pregunta: 'Dove posso ritirare e riconsegnare l’auto?', respuesta: 'In tutta l’isola: nel nostro ufficio di Costa del Silencio, negli aeroporti, nei porti, in hotel, appartamenti e indirizzi privati. Indica il luogo e l’indirizzo nella richiesta e ti confermeremo le condizioni.' },
             { pregunta: 'Quali requisiti deve avere il conducente?', respuesta: 'Avere tra 25 e 75 anni e almeno 5 anni di patente.' },
             { pregunta: 'Cosa include il prezzo?', respuesta: 'Tasse e assicurazione kasko. La franchigia è di 150 € e sulla tua carta non viene bloccato nessun importo.' },
             { pregunta: 'La mia richiesta è già una prenotazione?', respuesta: 'No. Dopo l’invio ricevi un’email che indica che è in elaborazione; la confermiamo con te per telefono o per email.' },
