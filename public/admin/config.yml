@@ -6,7 +6,7 @@
 # podría borrarlo al guardar. El test src/lib/cms.test.ts lo comprueba.
 backend:
   name: github
-  repo: CAMBIAR-USUARIO/tropic-web # PENDIENTE: usuario-o-organización/nombre-del-repositorio
+  repo: rubentnf/tropic-car # PENDIENTE: usuario-o-organización/nombre-del-repositorio
   branch: main
 
 publish_mode: simple

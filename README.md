@@ -10,16 +10,18 @@ Web de alquiler de coches para **Autos Tropic Canarias S.L.** (Tropic Rent a Car
 - Páginas de flota, contacto con preguntas frecuentes, aviso legal, privacidad y cookies.
 - Web en cinco idiomas (`/es/`, `/en/`, `/de/`, `/fr/`, `/it/`), pensada primero para móvil.
 - SEO básico: canonical, hreflang, sitemap, `robots.txt` y datos estructurados.
+- Panel `/admin/` para que el cliente edite precios, modelos y datos de la empresa sin tocar código.
 
 ## Tecnología
 
-| Pieza                          | Uso                                                          |
-| ------------------------------ | ------------------------------------------------------------ |
-| [Astro](https://astro.build) 7 | Sitio estático; solo `/api/solicitud` se ejecuta en servidor |
-| TypeScript                     | Lógica de precios, validación y correos                      |
-| Vitest                         | Tests de precios, búsqueda, solicitud, contenidos y SEO      |
-| [Resend](https://resend.com)   | Envío de correos                                             |
-| Cloudflare Workers             | Hosting, con `@astrojs/cloudflare` y `wrangler`              |
+| Pieza                                 | Uso                                                           |
+| ------------------------------------- | ------------------------------------------------------------- |
+| [Astro](https://astro.build) 7        | Sitio estático; solo `/api/solicitud` se ejecuta en servidor  |
+| TypeScript                            | Lógica de precios, validación y correos                       |
+| Vitest                                | Tests de precios, búsqueda, solicitud, contenidos y SEO       |
+| [Resend](https://resend.com)          | Envío de correos                                              |
+| Cloudflare Workers                    | Hosting, con `@astrojs/cloudflare` y `wrangler`               |
+| [Sveltia CMS](https://sveltiacms.app) | Panel `/admin/` que guarda los cambios como commits en GitHub |
 
 ## Requisitos
 
@@ -67,15 +69,27 @@ Las variables `PUBLIC_*` y `SITE_URL` se incrustan al compilar: si las cambias, 
 src/
   assets/       logo y fotos de los modelos (src/assets/modelos)
   components/   Buscador, galería, tarjetas de flota y de resultados, pasos y banner de cookies
-  data/         tarifas.json (14 grupos) y datos de la empresa
+  data/         tarifas.json (14 grupos) y empresa.json (datos de la empresa)
   i18n/         diccionarios de los cinco idiomas y textos largos (legales, preguntas frecuentes)
   layouts/      Base.astro (cabecera, pie, metaetiquetas)
   lib/          precios, búsqueda, solicitud, correos, SEO (con sus tests)
   pages/        rutas por idioma y /api/solicitud
   scripts/      JavaScript del navegador (resultados y solicitud)
   styles/       tokens.css (la «piel»: colores, radios) y global.css (componentes)
-public/         _headers (cabeceras de seguridad)
+public/         _headers (cabeceras de seguridad) y admin/ (panel de edición)
 ```
+
+## Panel de edición
+
+`/admin/` es un panel (Sveltia CMS) donde el cliente cambia los precios, los modelos y los datos de la empresa. Cada cambio se guarda como un commit en GitHub y Cloudflare vuelve a publicar la web en uno o dos minutos. No hay base de datos ni servidor extra.
+
+Para activarlo:
+
+1. En `public/admin/config.yml`, cambia `repo: CAMBIAR-USUARIO/tropic-web` por el repositorio real.
+2. Crea un token fine-grained en GitHub (Settings → Developer settings → Fine-grained tokens) limitado a ese repositorio, con permisos *Contents: Read and write* y *Metadata: Read-only*.
+3. Entra en `https://tu-dominio/admin/`, elige «Iniciar sesión con token» y pega el token. El navegador lo recuerda.
+
+Si añades un campo a `tarifas.json` o `empresa.json`, déclaralo también en `config.yml`: el test `src/lib/cms.test.ts` falla si falta, porque el panel borraría ese campo al guardar. Los textos de la web (traducciones, preguntas frecuentes, textos legales) no se editan desde el panel: están en `src/i18n/`.
 
 ## Cómo se calcula el precio
 
@@ -88,7 +102,7 @@ Los días se cuentan en bloques de 24 horas desde la hora de recogida. Las tarif
 Cloudflare Workers.
 
 ```bash
-SITE_URL=https://tu-dominio npm run build
+SITE_URL=https://tu-dominio npm test && npx astro build
 npx wrangler deploy
 ```
 
@@ -111,7 +125,12 @@ También se puede conectar el repositorio a Workers Builds (comando de build `np
 - Datos de la empresa marcados como `PENDIENTE` en `src/data/empresa.ts`.
 - Revisión profesional de los textos legales, que ahora son plantillas.
 - Fotografías de los vehículos con derechos de uso (las actuales son provisionales y algunas llevan marcas de agua de portales).
-- Confirmar con Eduardo las condiciones que aparecen en las preguntas frecuentes (franquicia, depósito, forma de pago).
+- Datos de la empresa marcados como `PENDIENTE` en `src/data/empresa.json` (o desde el panel).
+- Forma de pago: la pregunta frecuente «¿Se puede pagar online?» sigue marcada `[CONFIRMAR CON LA EMPRESA]`.
+- Teléfono que irá en la web: el fijo 922 731 565 o el 648 474 084 que dio en el cuestionario.
+- Si la columna del flyer (5, 3, 9) son puertas o plazas, para mostrar las puertas en cada coche.
+- Recargos por entrega fuera de la oficina, de madrugada o por devolver en otro lugar.
+- Cuenta de GitHub y token para que el cliente use el panel, o decidir que los cambios los haga el desarrollador.
 
 El contexto completo del proyecto para Claude Code está en `CLAUDE.md` y `docs/CONTEXTO.md`.
 

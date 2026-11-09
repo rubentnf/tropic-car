@@ -1,6 +1,13 @@
 {
   "name": "tropic-web",
   "compatibility_date": "2026-10-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "assets": { "not_found_handling": "404-page" }
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "not_found_handling": "404-page"
+  },
+  "vars": {
+    "SITE_URL": "https://tropic-web.ruben-tnf.workers.dev"
+  },
 }
