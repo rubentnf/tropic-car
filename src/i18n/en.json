@@ -31,7 +31,9 @@
             "office": "Costa del Silencio office",
             "airportSouth": "Tenerife South Airport",
             "airportNorth": "Tenerife North Airport",
-            "hotel": "Hotel or accommodation"
+            "port": "Port",
+            "hotel": "Hotel or accommodation",
+            "address": "Apartment or private address"
         },
         "lead": "Choose your dates and see the total price instantly."
     },
@@ -78,6 +80,7 @@
         "email": "Email",
         "age": "Driver's age",
         "licenceYears": "Years holding a driving licence",
+        "address": "Address or accommodation for delivery and pick-up (optional)",
         "flight": "Flight number (optional)",
         "comments": "Comments (optional)",
         "privacy": "I have read and accept the privacy policy",

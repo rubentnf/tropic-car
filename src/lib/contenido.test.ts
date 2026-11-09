@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { contenido, rellenarMarcadores } from '../i18n/contenido';
 import { getDictionary, locales } from '../i18n/utils';
+import { LUGARES } from './busqueda';
 
 const forma = (valor: unknown): unknown =>
     Array.isArray(valor)
@@ -26,6 +27,12 @@ describe('idiomas', () => {
         for (const lang of locales) {
             expect(vacios(contenido[lang], `contenido.${lang}`)).toEqual([]);
             expect(vacios(getDictionary(lang), `dic.${lang}`)).toEqual([]);
+        }
+    });
+    it('todos los lugares de recogida tienen texto en los cinco idiomas', () => {
+        for (const lang of locales) {
+            const lugares = getDictionary(lang).search.places as Record<string, string>;
+            for (const lugar of LUGARES) expect(lugares[lugar], `${lang}.${lugar}`).toBeTruthy();
         }
     });
     it('rellena marcadores y deja los desconocidos tal cual', () => {

@@ -1,4 +1,4 @@
-export const LUGARES = ['office', 'airportSouth', 'airportNorth', 'hotel'] as const;
+export const LUGARES = ['office', 'airportSouth', 'airportNorth', 'port', 'hotel', 'address'] as const;
 export type Lugar = (typeof LUGARES)[number];
 
 export interface Busqueda {

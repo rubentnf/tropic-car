@@ -8,6 +8,7 @@ import {
     type Locale,
 } from "../../i18n/utils";
 import type { Tarifas } from "../../lib/tipos";
+import { LUGARES } from "../../lib/busqueda";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({ params: { lang } }));
@@ -31,10 +32,9 @@ const textos = {
     seats: r.seats,
     total: r.total,
     sending: r.sending,
-    place_office: t.search.places.office,
-    place_airportSouth: t.search.places.airportSouth,
-    place_airportNorth: t.search.places.airportNorth,
-    place_hotel: t.search.places.hotel,
+    ...Object.fromEntries(
+        LUGARES.map((lugar) => [`place_${lugar}`, t.search.places[lugar]]),
+    ),
 };
 const errores = Object.fromEntries(
     Object.entries(r.errors).map(([clave, texto]) => [clave, rellenar(texto)]),
@@ -151,6 +151,16 @@ const errores = Object.fromEntries(
                     </div>
                 </div>
                 <p class="nota">{rellenar(r.conditions)}</p>
+                <div class="campo">
+                    <label for="direccion">{r.address}</label>
+                    <input
+                        id="direccion"
+                        name="direccion"
+                        type="text"
+                        autocomplete="street-address"
+                        maxlength="200"
+                    />
+                </div>
                 <div class="campo">
                     <label for="vuelo">{r.flight}</label>
                     <input id="vuelo" name="vuelo" type="text" maxlength="30" />

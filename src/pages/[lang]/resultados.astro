@@ -10,6 +10,7 @@ import {
 } from "../../i18n/utils";
 import { formatearEuros } from "../../lib/formato";
 import type { Tarifas } from "../../lib/tipos";
+import { LUGARES } from "../../lib/busqueda";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({ params: { lang } }));
@@ -28,10 +29,9 @@ const textos = {
     return: r.return,
     minDays: r.minDays,
     noRate: r.noRate,
-    place_office: t.search.places.office,
-    place_airportSouth: t.search.places.airportSouth,
-    place_airportNorth: t.search.places.airportNorth,
-    place_hotel: t.search.places.hotel,
+    ...Object.fromEntries(
+        LUGARES.map((lugar) => [`place_${lugar}`, t.search.places[lugar]]),
+    ),
 };
 ---
 

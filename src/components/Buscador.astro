@@ -1,5 +1,6 @@
 ---
 import { getDictionary, localizedPath, type Locale } from "../i18n/utils";
+import { LUGARES } from "../lib/busqueda";
 
 interface Props {
     lang: Locale;
@@ -7,12 +8,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const s = getDictionary(lang).search;
-const lugares = [
-    ["office", s.places.office],
-    ["airportSouth", s.places.airportSouth],
-    ["airportNorth", s.places.airportNorth],
-    ["hotel", s.places.hotel],
-] as const;
+const lugares = LUGARES.map((lugar) => [lugar, s.places[lugar]] as const);
 const horas = Array.from(
     { length: 48 },
     (_, i) =>
@@ -101,7 +97,8 @@ const horas = Array.from(
 
 <script
     is:inline
-    define:vars={{ mensajeOrden: s.errorOrder, mensajeFechas: s.errorDates }}>
+    define:vars={{ mensajeOrden: s.errorOrder, mensajeFechas: s.errorDates }}
+>
     (function () {
         var form = document.querySelector("[data-buscador]");
         if (!form) return;
@@ -120,7 +117,12 @@ const horas = Array.from(
         // Al venir de «Cambiar búsqueda» se recuperan los datos anteriores.
         // Lo que no sea una opción válida o una fecha futura se ignora.
         var previos = new URLSearchParams(location.search);
-        ["lugar_recogida", "lugar_devolucion", "hora_recogida", "hora_devolucion"].forEach(function (nombre) {
+        [
+            "lugar_recogida",
+            "lugar_devolucion",
+            "hora_recogida",
+            "hora_devolucion",
+        ].forEach(function (nombre) {
             var valor = previos.get(nombre);
             var existe = Array.from(f[nombre].options).some(function (o) {
                 return o.value === valor;
@@ -131,7 +133,8 @@ const horas = Array.from(
             var valor = previos.get(nombre);
             if (valor && valor >= iso) f[nombre].value = valor;
         });
-        if (f.fecha_recogida.value) f.fecha_devolucion.min = f.fecha_recogida.value;
+        if (f.fecha_recogida.value)
+            f.fecha_devolucion.min = f.fecha_recogida.value;
 
         function fecha(d, h) {
             return new Date(d + "T" + h + ":00");

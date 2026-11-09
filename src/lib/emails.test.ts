@@ -45,6 +45,14 @@ describe('correos', () => {
         expect(c.text).toContain('FR1234');
         expect(c.text).toContain('250');
     });
+    it('el aviso a la empresa incluye puerto, domicilio y dirección de entrega', () => {
+        const r2 = validarSolicitud(datos({ lugar_recogida: 'port', lugar_devolucion: 'address', direccion: 'Hotel Sol, Los Cristianos' }), data);
+        if (!r2.ok) throw new Error('solicitud de prueba no válida');
+        const c = correoParaEmpresa(r2.solicitud, 'info@tropic.test');
+        expect(c.text).toContain('Puerto');
+        expect(c.text).toContain('Apartamento o domicilio');
+        expect(c.text).toContain('Dirección de entrega/recogida: Hotel Sol, Los Cristianos');
+    });
     it('el acuse al cliente va en su idioma y dice que no está confirmada', () => {
         const frases = {
             es: 'en trámite',

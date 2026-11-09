@@ -32,7 +32,9 @@
             "office": "Ufficio Costa del Silencio",
             "airportSouth": "Aeroporto di Tenerife Sud",
             "airportNorth": "Aeroporto di Tenerife Nord",
-            "hotel": "Hotel o alloggio"
+            "port": "Porto",
+            "hotel": "Hotel o alloggio",
+            "address": "Appartamento o indirizzo privato"
         }
     },
     "results": {
@@ -78,6 +80,7 @@
         "email": "Email",
         "age": "Età del conducente",
         "licenceYears": "Anni di patente",
+        "address": "Indirizzo o alloggio per consegna e riconsegna (facoltativo)",
         "flight": "Numero del volo (facoltativo)",
         "comments": "Commenti (facoltativo)",
         "privacy": "Ho letto e accetto l'informativa sulla privacy",

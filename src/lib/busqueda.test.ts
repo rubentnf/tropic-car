@@ -25,6 +25,11 @@ describe('leerBusqueda', () => {
     it('acepta un lugar de devolución distinto', () => {
         expect(leerBusqueda(con({ lugar_devolucion: 'airportSouth' }))?.lugarDevolucion).toBe('airportSouth');
     });
+    it('acepta puerto y domicilio como lugares de recogida y devolución', () => {
+        const b = leerBusqueda(con({ lugar_recogida: 'port', lugar_devolucion: 'address' }));
+        expect(b?.lugarRecogida).toBe('port');
+        expect(b?.lugarDevolucion).toBe('address');
+    });
     it('rechaza parámetros que faltan', () => {
         expect(leerBusqueda(new URLSearchParams())).toBeNull();
         expect(leerBusqueda(con({ fecha_recogida: '' }))).toBeNull();

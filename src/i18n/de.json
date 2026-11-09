@@ -32,7 +32,9 @@
             "office": "Büro Costa del Silencio",
             "airportSouth": "Flughafen Teneriffa Süd",
             "airportNorth": "Flughafen Teneriffa Nord",
-            "hotel": "Hotel oder Unterkunft"
+            "port": "Hafen",
+            "hotel": "Hotel oder Unterkunft",
+            "address": "Apartment oder Privatadresse"
         }
     },
     "results": {
@@ -78,6 +80,7 @@
         "email": "E-Mail",
         "age": "Alter des Fahrers",
         "licenceYears": "Jahre Führerschein",
+        "address": "Adresse oder Unterkunft für Übergabe und Rückgabe (optional)",
         "flight": "Flugnummer (optional)",
         "comments": "Anmerkungen (optional)",
         "privacy": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie",

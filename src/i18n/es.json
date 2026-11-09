@@ -31,7 +31,9 @@
             "office": "Oficina Costa del Silencio",
             "airportSouth": "Aeropuerto Tenerife Sur",
             "airportNorth": "Aeropuerto Tenerife Norte",
-            "hotel": "Hotel o alojamiento"
+            "port": "Puerto",
+            "hotel": "Hotel o alojamiento",
+            "address": "Apartamento o domicilio"
         },
         "lead": "Elige fechas y mira el precio total al instante."
     },
@@ -78,6 +80,7 @@
         "email": "Email",
         "age": "Edad del conductor",
         "licenceYears": "Años de carnet de conducir",
+        "address": "Dirección o alojamiento para la entrega y recogida (opcional)",
         "flight": "Número de vuelo (opcional)",
         "comments": "Comentarios (opcional)",
         "privacy": "He leído y acepto la política de privacidad",
