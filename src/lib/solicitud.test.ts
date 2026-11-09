@@ -37,6 +37,16 @@ describe('validarSolicitud', () => {
         expect(r.ok).toBe(true);
         if (r.ok) expect(r.solicitud.presupuesto.total).toBe(250); // 5 días x 45 € + 1 silla x 5 € x 5 días
     });
+    it('guarda la dirección de entrega si se indica y la recorta a 200 caracteres', () => {
+        const r = validarSolicitud(datos({ lugar_recogida: 'address', direccion: 'Calle Mar 5, Costa del Silencio' }), data);
+        expect(r.ok && r.solicitud.direccion).toBe('Calle Mar 5, Costa del Silencio');
+        const larga = validarSolicitud(datos({ direccion: 'x'.repeat(500) }), data);
+        expect(larga.ok && larga.solicitud.direccion.length).toBe(200);
+    });
+    it('la dirección es opcional', () => {
+        const r = validarSolicitud(datos(), data);
+        expect(r.ok && r.solicitud.direccion).toBe('');
+    });
     it('ignora cualquier precio que mande el navegador', () => {
         const r = validarSolicitud(datos({ total: '1', precio: '1' }), data);
         expect(r.ok && r.solicitud.presupuesto.total).toBe(250);

@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+import tarifas from "../data/tarifas.json";
+import { fotoModelo } from "../data/fotos";
+import { getDictionary, localizedPath, type Locale } from "../i18n/utils";
+import { formatearEuros } from "../lib/formato";
+import type { Tarifas } from "../lib/tipos";
+
+interface Props {
+    lang: Locale;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const r = t.results;
+const rutaFlota = localizedPath(lang, "flota");
+
+// Un ejemplo de cada tipo: pequeño, automático, descapotable y furgoneta.
+const DESTACADOS = ["A", "E", "G", "K"];
+
+const tarjetas = (tarifas as unknown as Tarifas).groups
+    .filter((grupo) => DESTACADOS.includes(grupo.id))
+    .flatMap((grupo) => {
+        const modelo = grupo.models[0];
+        const foto = fotoModelo(modelo.name);
+        if (!foto) return [];
+        return [
+            {
+                id: grupo.id,
+                modelo: modelo.name,
+                foto,
+                cambio: r.gearbox[grupo.gearbox],
+                plazas: grupo.models
+                    .map((m) => m.pax)
+                    .find((p) => typeof p === "number"),
+                precio: grupo.price_per_day_eur["7+"],
+            },
+        ];
+    });
+---
+
+<section class="seccion" aria-labelledby="titulo-flota">
+    <div class="contenedor">
+        <div class="seccion-cabecera">
+            <div>
+                <h2 id="titulo-flota">{t.home.fleetTitle}</h2>
+                <p class="seccion-lead">{t.home.fleetLead}</p>
+            </div>
+            <a class="boton" href={rutaFlota}>{t.home.allGroups}</a>
+        </div>
+        <ul class="resumen-flota">
+            {
+                tarjetas.map((c) => (
+                    <li class="resumen-coche">
+                        <Image
+                            class="resumen-coche-foto"
+                            src={c.foto}
+                            alt=""
+                            widths={[320, 640]}
+                            sizes="(min-width: 64rem) 16rem, 50vw"
+                            format="webp"
+                        />
+                        <h3>
+                            <a href={`${rutaFlota}#grupo-${c.id}`}>
+                                {c.modelo} <small>{r.orSimilar}</small>
+                            </a>
+                        </h3>
+                        <p class="resumen-coche-datos">
+                            {c.cambio}
+                            {c.plazas !== undefined &&
+                                ` · ${c.plazas} ${r.seatsLabel}`}
+                        </p>
+                        {c.precio !== null && (
+                            <p class="precio-desde">
+                                <strong>{formatearEuros(c.precio, lang)}</strong>{" "}
+                                <span>{t.home.priceFrom}</span>
+                            </p>
+                        )}
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>

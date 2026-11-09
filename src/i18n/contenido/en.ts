@@ -20,6 +20,7 @@ export const en: Contenido = {
         mapaTitulo: 'Map',
         preguntasTitulo: 'Frequently asked questions',
         preguntas: [
+            { pregunta: 'Where can I pick up and return the car?', respuesta: 'All over the island: our Costa del Silencio office, the airports, the ports, hotels, apartments and private homes. Give the place and address when you send the request and we will confirm the conditions.' },
             { pregunta: 'What are the driver requirements?', respuesta: 'Drivers must be between 25 and 75 years old and have held a driving licence for at least 5 years.' },
             { pregunta: 'What is included in the price?', respuesta: 'Taxes and full-risk insurance. The excess is 150 € and no amount is held on your card.' },
             { pregunta: 'Is my request already a booking?', respuesta: 'No. After sending it you receive an email saying it is being processed; we confirm it with you by phone or email.' },

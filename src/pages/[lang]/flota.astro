@@ -23,7 +23,7 @@ const data = tarifas as unknown as Tarifas;
         <div class="rejilla-flota">
             {
                 data.groups.map((grupo) => (
-                    <TarjetaFlota lang={lang} grupo={grupo} detalle nivel={2} />
+                    <TarjetaFlota lang={lang} grupo={grupo} />
                 ))
             }
         </div>

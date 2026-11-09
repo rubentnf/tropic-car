@@ -1,0 +1,115 @@
+# Panel de edición (Sveltia CMS) en https://TU-DOMINIO/admin/
+# Cada cambio que se guarda en el panel es un commit en GitHub; al subir el commit,
+# Cloudflare vuelve a compilar y publicar la web en uno o dos minutos.
+#
+# IMPORTANTE: todo campo que exista en los JSON tiene que estar declarado aquí o el panel
+# podría borrarlo al guardar. El test src/lib/cms.test.ts lo comprueba.
+backend:
+  name: github
+  repo: rubentnf/tropic-car # PENDIENTE: usuario-o-organización/nombre-del-repositorio
+  branch: main
+
+publish_mode: simple
+locale: es
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: datos
+    label: Datos de la web
+    files:
+      - name: tarifas
+        label: Coches y precios
+        file: src/data/tarifas.json
+        format: json
+        fields:
+          - label: Datos generales
+            name: meta
+            widget: object
+            collapsed: true
+            summary: 'Precio de la silla, edades y notas (normalmente no hace falta tocarlo)'
+            fields:
+              - { label: Negocio, name: business, widget: string }
+              - { label: Origen de las tarifas, name: source, widget: string }
+              - { label: Moneda, name: currency, widget: string }
+              - { label: Unidad de precio, name: price_unit, widget: string }
+              - { label: Impuestos y seguro incluidos, name: taxes_and_insurance_included, widget: boolean }
+              - label: Tramos de duración
+                name: duration_tiers_days
+                widget: list
+                field: { label: Tramo, name: tramo, widget: string }
+              - { label: Silla infantil (€ por día), name: baby_seat_per_day_eur, widget: number, value_type: int, min: 0 }
+              - label: Tipos de silla infantil
+                name: baby_seat_types
+                widget: list
+                field: { label: Tipo, name: tipo, widget: string }
+              - label: Condiciones del conductor
+                name: driver_requirements
+                widget: object
+                fields:
+                  - { label: Edad mínima, name: min_age, widget: number, value_type: int, min: 18 }
+                  - { label: Edad máxima, name: max_age, widget: number, value_type: int, min: 18 }
+                  - { label: Años de carnet mínimos, name: min_license_years, widget: number, value_type: int, min: 0 }
+              - label: Pendiente de confirmar con el cliente
+                name: to_confirm_with_client
+                widget: list
+                required: false
+                field: { label: Nota, name: nota, widget: string }
+          - label: Grupos de coches
+            name: groups
+            widget: list
+            label_singular: Grupo
+            summary: 'Grupo {{fields.id}}'
+            fields:
+              - { label: Letra del grupo (no cambiar), name: id, widget: string }
+              - label: Modelos
+                name: models
+                widget: list
+                label_singular: Modelo
+                summary: '{{fields.name}}'
+                fields:
+                  - { label: Modelo, name: name, widget: string, hint: 'Si lo cambias, hay que actualizar también su foto (lo hace el desarrollador).' }
+                  - { label: Plazas (opcional), name: pax, widget: string, required: false }
+              - label: Cambio
+                name: gearbox
+                widget: select
+                options:
+                  - { label: Manual, value: manual }
+                  - { label: Automático, value: automatic }
+                  - { label: Manual o automático, value: manual_or_automatic }
+              - { label: Aire acondicionado, name: air_conditioning, widget: boolean }
+              - { label: Número de la columna del flyer, name: flyer_column_value, widget: number, value_type: int }
+              - { label: Modelo de la foto del flyer, name: flyer_photo_model, widget: string }
+              - { label: Días mínimos de alquiler, name: min_days, widget: number, value_type: int, min: 1 }
+              - label: Precio por día según la duración (€)
+                name: price_per_day_eur
+                widget: object
+                fields:
+                  - { label: 1 día, name: '1', widget: number, value_type: int, min: 0, required: false }
+                  - { label: 2-3 días, name: '2-3', widget: number, value_type: int, min: 0 }
+                  - { label: 4-6 días, name: '4-6', widget: number, value_type: int, min: 0 }
+                  - { label: 7 días o más, name: '7+', widget: number, value_type: int, min: 0 }
+
+      - name: empresa
+        label: Datos de la empresa
+        file: src/data/empresa.json
+        format: json
+        fields:
+          - { label: Razón social, name: razonSocial, widget: string }
+          - { label: Nombre comercial, name: nombreComercial, widget: string }
+          - { label: CIF, name: cif, widget: string }
+          - { label: Dirección, name: domicilio, widget: string }
+          - { label: Registro Mercantil, name: registroMercantil, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Teléfono, name: telefono, widget: string }
+          - label: Horario de la oficina
+            name: horario
+            widget: object
+            fields:
+              - { label: Español, name: es, widget: string }
+              - { label: Inglés, name: en, widget: string }
+              - { label: Alemán, name: de, widget: string }
+              - { label: Francés, name: fr, widget: string }
+              - { label: Italiano, name: it, widget: string }
+          - { label: Enlace de Google Maps, name: mapaEnlace, widget: string }
+          - { label: URL del mapa incrustado (opcional), name: mapaEmbedUrl, widget: string, required: false }

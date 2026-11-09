@@ -20,6 +20,7 @@ export const fr: Contenido = {
         mapaTitulo: 'Carte',
         preguntasTitulo: 'Questions fréquentes',
         preguntas: [
+            { pregunta: 'Où puis-je récupérer et rendre la voiture ?', respuesta: 'Partout sur l’île : dans notre agence de Costa del Silencio, aux aéroports, aux ports, dans les hôtels, les appartements et les adresses privées. Indiquez le lieu et l’adresse dans la demande et nous vous confirmerons les conditions.' },
             { pregunta: 'Quelles conditions le conducteur doit-il remplir ?', respuesta: 'Avoir entre 25 et 75 ans et au moins 5 ans de permis de conduire.' },
             { pregunta: 'Que comprend le prix ?', respuesta: 'Les taxes et l’assurance tous risques. La franchise est de 150 € et aucun montant n’est bloqué sur votre carte.' },
             { pregunta: 'Ma demande est-elle déjà une réservation ?', respuesta: 'Non. Après l’envoi, vous recevez un e-mail indiquant qu’elle est en cours de traitement ; nous la confirmons avec vous par téléphone ou par e-mail.' },

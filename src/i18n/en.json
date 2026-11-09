@@ -31,7 +31,9 @@
             "office": "Costa del Silencio office",
             "airportSouth": "Tenerife South Airport",
             "airportNorth": "Tenerife North Airport",
-            "hotel": "Hotel or accommodation"
+            "port": "Port",
+            "hotel": "Hotel or accommodation",
+            "address": "Apartment or private address"
         },
         "lead": "Choose your dates and see the total price instantly."
     },
@@ -78,6 +80,7 @@
         "email": "Email",
         "age": "Driver's age",
         "licenceYears": "Years holding a driving licence",
+        "address": "Address or accommodation for delivery and pick-up (optional)",
         "flight": "Flight number (optional)",
         "comments": "Comments (optional)",
         "privacy": "I have read and accept the privacy policy",
@@ -116,9 +119,28 @@
     },
     "home": {
         "fleetTitle": "Our fleet and daily prices",
-        "fleetLead": "A selection of our 14 groups. Taxes included.",
+        "fleetLead": "Fourteen groups, from city cars to vans and convertibles. Taxes included.",
         "allGroups": "See all 14 groups",
         "priceFrom": "per day, renting for 7 days or more",
+        "benefitsTitle": "Why rent with us",
+        "benefits": [
+            {
+                "title": "Full-risk insurance",
+                "text": "150 € excess and nothing held on your card."
+            },
+            {
+                "title": "No payment on the website",
+                "text": "You send the request and we confirm it with you. Nothing is paid when you send it."
+            },
+            {
+                "title": "Delivery all over the island",
+                "text": "Office, airports, ports, hotels and apartments."
+            },
+            {
+                "title": "Since 1992",
+                "text": "Over 30 years renting cars in Tenerife."
+            }
+        ],
         "stepsTitle": "Booking is easy",
         "steps": [
             {

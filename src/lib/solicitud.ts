@@ -22,6 +22,7 @@ export interface Solicitud {
     email: string;
     edad: number;
     anosCarnet: number;
+    direccion: string;
     vuelo: string;
     comentarios: string;
     busqueda: Busqueda;
@@ -94,6 +95,7 @@ export function validarSolicitud(datos: FormData, tarifas: Tarifas): ResultadoVa
             email,
             edad,
             anosCarnet,
+            direccion: texto(datos, 'direccion', 200),
             vuelo: texto(datos, 'vuelo', 30),
             comentarios: texto(datos, 'comentarios', 1000),
             busqueda,

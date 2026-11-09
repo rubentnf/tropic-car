@@ -20,6 +20,7 @@ export const es: Contenido = {
         mapaTitulo: 'Mapa',
         preguntasTitulo: 'Preguntas frecuentes',
         preguntas: [
+            { pregunta: '¿Dónde puedo recoger y devolver el coche?', respuesta: 'En toda la isla: nuestra oficina de Costa del Silencio, los aeropuertos, los puertos, hoteles, apartamentos y domicilios particulares. Indica el lugar y la dirección al enviar la solicitud y te confirmamos las condiciones.' },
             { pregunta: '¿Qué requisitos tiene que cumplir el conductor?', respuesta: 'Tener entre 25 y 75 años y al menos 5 años de carnet de conducir.' },
             { pregunta: '¿Qué incluye el precio?', respuesta: 'Impuestos y seguro a todo riesgo. La franquicia es de 150 € y no se bloquea ninguna cantidad en tu tarjeta.' },
             { pregunta: '¿Mi solicitud es ya una reserva?', respuesta: 'No. Al enviarla recibes un email de que está en trámite; la confirmamos contigo por teléfono o email.' },

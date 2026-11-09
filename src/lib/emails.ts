@@ -1,4 +1,5 @@
 import type { Locale } from '../i18n/utils';
+import type { Lugar } from './busqueda';
 import { formatearEuros, formatearFechaHora } from './formato';
 import type { Solicitud } from './solicitud';
 
@@ -11,7 +12,8 @@ export interface Correo {
 
 /** Textos del resumen y del acuse que recibe el cliente, en el idioma de la web. */
 interface Textos {
-    lugares: Record<string, string>;
+    lugares: Record<Lugar, string>;
+    direccion: string;
     grupo: string;
     similar: string;
     recogida: string;
@@ -27,14 +29,16 @@ interface Textos {
 
 const TEXTOS: Record<Locale, Textos> = {
     es: {
-        lugares: { office: 'Oficina Costa del Silencio', airportSouth: 'Aeropuerto Tenerife Sur', airportNorth: 'Aeropuerto Tenerife Norte', hotel: 'Hotel o Alojamiento' },
+        lugares: { office: 'Oficina Costa del Silencio', airportSouth: 'Aeropuerto Tenerife Sur', airportNorth: 'Aeropuerto Tenerife Norte', port: 'Puerto', hotel: 'Hotel o alojamiento', address: 'Apartamento o domicilio' },
+        direccion: 'Dirección de entrega/recogida',
         grupo: 'Grupo', similar: 'o similar', recogida: 'Recogida', devolucion: 'Devolucion', dias: (n, p) => `Días: ${n} a ${p} por día`, sillas: 'Sillas infantiles', total: 'Total', impuestos: 'impuestos y seguro incluidos',
         asunto: 'Hemos recibido tu solicitud - Tropic Rent a Car',
         saludo: (n) => `Hola ${n},`,
         cuerpo: 'Tu solicitud está en trámite. Todavía no es una reserva confirmada: la revisaremos y te contactaremos en breve para confirmarla.',
     },
     en: {
-        lugares: { office: 'Costa del Silencio office', airportSouth: 'Tenerife South Airport', airportNorth: 'Tenerife North Airport', hotel: 'Hotel or accommodation' },
+        lugares: { office: 'Costa del Silencio office', airportSouth: 'Tenerife South Airport', airportNorth: 'Tenerife North Airport', port: 'Port', hotel: 'Hotel or accommodation', address: 'Apartment or private address' },
+        direccion: 'Delivery/pick-up address',
         grupo: 'Group', similar: 'or similar', recogida: 'Pick-up', devolucion: 'Return',
         dias: (n, p) => `Days: ${n} at ${p} per day`, sillas: 'Child seats', total: 'Total', impuestos: 'taxes and insurance included',
         asunto: 'We have received your request - Tropic Rent a Car',
@@ -42,7 +46,8 @@ const TEXTOS: Record<Locale, Textos> = {
         cuerpo: 'Your request is being processed. It is not a confirmed booking yet: we will check it and contact you shortly to confirm.',
     },
     de: {
-        lugares: { office: 'Büro Costa del Silencio', airportSouth: 'Flughafen Teneriffa Süd', airportNorth: 'Flughafen Teneriffa Nord', hotel: 'Hotel oder Unterkunft' },
+        lugares: { office: 'Büro Costa del Silencio', airportSouth: 'Flughafen Teneriffa Süd', airportNorth: 'Flughafen Teneriffa Nord', port: 'Hafen', hotel: 'Hotel oder Unterkunft', address: 'Apartment oder Privatadresse' },
+        direccion: 'Adresse für Übergabe/Rückgabe',
         grupo: 'Gruppe', similar: 'oder ähnlich', recogida: 'Abholung', devolucion: 'Rückgabe',
         dias: (n, p) => `Tage: ${n} zu ${p} pro Tag`, sillas: 'Kindersitze', total: 'Gesamt', impuestos: 'Steuern und Versicherung inklusive',
         asunto: 'Wir haben Ihre Anfrage erhalten - Tropic Rent a Car',
@@ -50,7 +55,8 @@ const TEXTOS: Record<Locale, Textos> = {
         cuerpo: 'Ihre Anfrage wird bearbeitet. Es ist noch keine bestätigte Buchung: Wir prüfen sie und melden uns in Kürze bei Ihnen, um sie zu bestätigen.',
     },
     fr: {
-        lugares: { office: 'Agence Costa del Silencio', airportSouth: 'Aéroport de Tenerife Sud', airportNorth: 'Aéroport de Tenerife Nord', hotel: 'Hôtel ou hébergement' },
+        lugares: { office: 'Agence Costa del Silencio', airportSouth: 'Aéroport de Tenerife Sud', airportNorth: 'Aéroport de Tenerife Nord', port: 'Port', hotel: 'Hôtel ou hébergement', address: 'Appartement ou adresse privée' },
+        direccion: 'Adresse de livraison/restitution',
         grupo: 'Groupe', similar: 'ou similaire', recogida: 'Prise en charge', devolucion: 'Restitution',
         dias: (n, p) => `Jours : ${n} à ${p} par jour`, sillas: 'Sièges enfant', total: 'Total', impuestos: 'taxes et assurance incluses',
         asunto: 'Nous avons reçu votre demande - Tropic Rent a Car',
@@ -58,7 +64,8 @@ const TEXTOS: Record<Locale, Textos> = {
         cuerpo: 'Votre demande est en cours de traitement. Ce n’est pas encore une réservation confirmée : nous allons l’examiner et vous contacter très bientôt pour la confirmer.',
     },
     it: {
-        lugares: { office: 'Ufficio Costa del Silencio', airportSouth: 'Aeroporto di Tenerife Sud', airportNorth: 'Aeroporto di Tenerife Nord', hotel: 'Hotel o alloggio' },
+        lugares: { office: 'Ufficio Costa del Silencio', airportSouth: 'Aeroporto di Tenerife Sud', airportNorth: 'Aeroporto di Tenerife Nord', port: 'Porto', hotel: 'Hotel o alloggio', address: 'Appartamento o indirizzo privato' },
+        direccion: 'Indirizzo di consegna/riconsegna',
         grupo: 'Gruppo', similar: 'o simile', recogida: 'Ritiro', devolucion: 'Riconsegna',
         dias: (n, p) => `Giorni: ${n} a ${p} al giorno`, sillas: 'Seggiolini per bambini', total: 'Totale', impuestos: 'tasse e assicurazione incluse',
         asunto: 'Abbiamo ricevuto la tua richiesta - Tropic Rent a Car',
@@ -77,6 +84,7 @@ function resumen(s: Solicitud, lang: Locale): string[] {
         `${t.grupo} ${s.grupo.id}: ${modelos} (${t.similar})`,
         `${t.recogida}: ${t.lugares[s.busqueda.lugarRecogida]}, ${fecha(s.busqueda.recogida)}`,
         `${t.devolucion}: ${t.lugares[s.busqueda.lugarDevolucion]}, ${fecha(s.busqueda.devolucion)}`,
+        ...(s.direccion ? [`${t.direccion}: ${s.direccion}`] : []),
         t.dias(p.dias, euros(p.precioDia)),
         `${t.sillas}: ${p.sillas}`,
         `${t.total}: ${euros(p.total)} (${t.impuestos})`,

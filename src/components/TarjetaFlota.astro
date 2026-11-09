@@ -8,13 +8,8 @@ import type { Grupo, Tramo } from "../lib/tipos";
 interface Props {
     lang: Locale;
     grupo: Grupo;
-    /** Muestra los cuatro tramos de precio (página Flota). */
-    detalle?: boolean;
-    /** Nivel del título: 3 bajo una sección con h2 (portada), 2 directamente bajo el h1 (Flota). */
-    nivel?: 2 | 3;
 }
-const { lang, grupo, detalle = false, nivel = 3 } = Astro.props;
-const Titulo = `h${nivel}`;
+const { lang, grupo } = Astro.props;
 const t = getDictionary(lang);
 const r = t.results;
 const tramosTexto = getContenido(lang).flota.tramos;
@@ -22,18 +17,18 @@ const tramosTexto = getContenido(lang).flota.tramos;
 const modelos = grupo.models.map((m) => m.name).join(" · ");
 const plazas = grupo.models
     .map((m) => m.pax)
-    .find((p) => typeof p === "number");
+    .find((p) => p !== null && p !== undefined && String(p).trim() !== "");
 const precioDesde = grupo.price_per_day_eur["7+"];
 const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
 ---
 
-<article class="tarjeta-flota" data-grupo={grupo.id}>
+<article class="tarjeta-flota" id={`grupo-${grupo.id}`} data-grupo={grupo.id}>
     <div class="tarjeta-flota-cabecera">
         <span class="insignia">{r.group} {grupo.id}</span>
         <span class="cambio">{r.gearbox[grupo.gearbox]}</span>
     </div>
     <GaleriaGrupo lang={lang} grupo={grupo} />
-    <Titulo>{modelos} <small>{r.orSimilar}</small></Titulo>
+    <h2>{modelos} <small>{r.orSimilar}</small></h2>
     <ul class="etiquetas">
         {grupo.air_conditioning && <li>{r.ac}</li>}
         {
@@ -45,30 +40,28 @@ const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
         }
     </ul>
     {
-        precioDesde !== null && (
+        precioDesde != null && (
             <p class="precio-desde">
                 <strong>{formatearEuros(precioDesde, lang)}</strong>{" "}
                 <span>{t.home.priceFrom}</span>
             </p>
         )
     }
-    {
-        detalle && (
-            <ul class="tramos">
-                {tramos.map((tr) => (
-                    <li>
-                        <span>{tramosTexto[tr]}</span>
-                        <strong>
-                            {grupo.price_per_day_eur[tr] === null
-                                ? "-"
-                                : formatearEuros(
-                                      grupo.price_per_day_eur[tr] as number,
-                                      lang,
-                                  )}
-                        </strong>
-                    </li>
-                ))}
-            </ul>
-        )
-    }
+    <ul class="tramos">
+        {
+            tramos.map((tr) => (
+                <li>
+                    <span>{tramosTexto[tr]}</span>
+                    <strong>
+                        {grupo.price_per_day_eur[tr] == null
+                            ? "—"
+                            : formatearEuros(
+                                  grupo.price_per_day_eur[tr] as number,
+                                  lang,
+                              )}
+                    </strong>
+                </li>
+            ))
+        }
+    </ul>
 </article>

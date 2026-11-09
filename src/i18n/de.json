@@ -32,7 +32,9 @@
             "office": "Büro Costa del Silencio",
             "airportSouth": "Flughafen Teneriffa Süd",
             "airportNorth": "Flughafen Teneriffa Nord",
-            "hotel": "Hotel oder Unterkunft"
+            "port": "Hafen",
+            "hotel": "Hotel oder Unterkunft",
+            "address": "Apartment oder Privatadresse"
         }
     },
     "results": {
@@ -78,6 +80,7 @@
         "email": "E-Mail",
         "age": "Alter des Fahrers",
         "licenceYears": "Jahre Führerschein",
+        "address": "Adresse oder Unterkunft für Übergabe und Rückgabe (optional)",
         "flight": "Flugnummer (optional)",
         "comments": "Anmerkungen (optional)",
         "privacy": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie",
@@ -116,9 +119,28 @@
     },
     "home": {
         "fleetTitle": "Unsere Flotte und Tagespreise",
-        "fleetLead": "Eine Auswahl unserer 14 Gruppen. Steuern inklusive.",
+        "fleetLead": "Vierzehn Gruppen, vom Kleinwagen bis zum Transporter und Cabrio. Steuern inklusive.",
         "allGroups": "Alle 14 Gruppen ansehen",
         "priceFrom": "pro Tag bei mindestens 7 Miettagen",
+        "benefitsTitle": "Warum bei uns mieten",
+        "benefits": [
+            {
+                "title": "Vollkaskoversicherung",
+                "text": "150 € Selbstbeteiligung, nichts wird auf Ihrer Karte blockiert."
+            },
+            {
+                "title": "Keine Zahlung auf der Website",
+                "text": "Sie senden die Anfrage, wir bestätigen sie mit Ihnen. Beim Absenden wird nichts bezahlt."
+            },
+            {
+                "title": "Übergabe auf der ganzen Insel",
+                "text": "Büro, Flughäfen, Häfen, Hotels und Apartments."
+            },
+            {
+                "title": "Seit 1992",
+                "text": "Über 30 Jahre Autovermietung auf Teneriffa."
+            }
+        ],
         "stepsTitle": "Buchen ist einfach",
         "steps": [
             {

@@ -31,7 +31,9 @@
             "office": "Oficina Costa del Silencio",
             "airportSouth": "Aeropuerto Tenerife Sur",
             "airportNorth": "Aeropuerto Tenerife Norte",
-            "hotel": "Hotel o alojamiento"
+            "port": "Puerto",
+            "hotel": "Hotel o alojamiento",
+            "address": "Apartamento o domicilio"
         },
         "lead": "Elige fechas y mira el precio total al instante."
     },
@@ -78,6 +80,7 @@
         "email": "Email",
         "age": "Edad del conductor",
         "licenceYears": "Años de carnet de conducir",
+        "address": "Dirección o alojamiento para la entrega y recogida (opcional)",
         "flight": "Número de vuelo (opcional)",
         "comments": "Comentarios (opcional)",
         "privacy": "He leído y acepto la política de privacidad",
@@ -116,9 +119,28 @@
     },
     "home": {
         "fleetTitle": "Nuestra flota y precios por día",
-        "fleetLead": "Una selección de nuestros 14 grupos. Impuestos incluidos.",
+        "fleetLead": "Catorce grupos, de utilitarios a furgonetas y descapotables. Impuestos incluidos.",
         "allGroups": "Ver los 14 grupos",
         "priceFrom": "por día, alquilando 7 días o más",
+        "benefitsTitle": "Por qué alquilar con nosotros",
+        "benefits": [
+            {
+                "title": "Seguro a todo riesgo",
+                "text": "Franquicia de 150 € y sin bloquear nada en tu tarjeta."
+            },
+            {
+                "title": "Sin pago en la web",
+                "text": "Envías la solicitud y la confirmamos contigo. No se paga nada al enviarla."
+            },
+            {
+                "title": "Entrega en toda la isla",
+                "text": "Oficina, aeropuertos, puertos, hoteles y apartamentos."
+            },
+            {
+                "title": "Desde 1992",
+                "text": "Más de 30 años alquilando coches en Tenerife."
+            }
+        ],
         "stepsTitle": "Reservar es fácil",
         "steps": [
             {

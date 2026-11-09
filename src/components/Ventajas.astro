@@ -1,0 +1,25 @@
+---
+import { getDictionary, type Locale } from "../i18n/utils";
+
+interface Props {
+    lang: Locale;
+}
+const { lang } = Astro.props;
+const h = getDictionary(lang).home;
+---
+
+<section class="seccion" aria-labelledby="titulo-ventajas">
+    <div class="contenedor">
+        <h2 id="titulo-ventajas">{h.benefitsTitle}</h2>
+        <ul class="ventajas">
+            {
+                h.benefits.map((v) => (
+                    <li class="ventaja">
+                        <h3>{v.title}</h3>
+                        <p>{v.text}</p>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>

@@ -32,7 +32,9 @@
             "office": "Agence Costa del Silencio",
             "airportSouth": "Aéroport de Tenerife Sud",
             "airportNorth": "Aéroport de Tenerife Nord",
-            "hotel": "Hôtel ou hébergement"
+            "port": "Port",
+            "hotel": "Hôtel ou hébergement",
+            "address": "Appartement ou adresse privée"
         }
     },
     "results": {
@@ -78,6 +80,7 @@
         "email": "E-mail",
         "age": "Âge du conducteur",
         "licenceYears": "Années de permis de conduire",
+        "address": "Adresse ou hébergement pour la livraison et la restitution (facultatif)",
         "flight": "Numéro de vol (facultatif)",
         "comments": "Commentaires (facultatif)",
         "privacy": "J'ai lu et j'accepte la politique de confidentialité",
@@ -116,9 +119,28 @@
     },
     "home": {
         "fleetTitle": "Notre flotte et nos prix par jour",
-        "fleetLead": "Une sélection de nos 14 groupes. Taxes incluses.",
+        "fleetLead": "Quatorze groupes, des citadines aux fourgons et cabriolets. Taxes incluses.",
         "allGroups": "Voir les 14 groupes",
         "priceFrom": "par jour, pour 7 jours de location ou plus",
+        "benefitsTitle": "Pourquoi louer chez nous",
+        "benefits": [
+            {
+                "title": "Assurance tous risques",
+                "text": "Franchise de 150 € et rien n’est bloqué sur votre carte."
+            },
+            {
+                "title": "Aucun paiement sur le site",
+                "text": "Vous envoyez la demande et nous la confirmons avec vous. Rien n’est payé à l’envoi."
+            },
+            {
+                "title": "Livraison sur toute l’île",
+                "text": "Agence, aéroports, ports, hôtels et appartements."
+            },
+            {
+                "title": "Depuis 1992",
+                "text": "Plus de 30 ans de location de voitures à Tenerife."
+            }
+        ],
         "stepsTitle": "Réserver est simple",
         "steps": [
             {
