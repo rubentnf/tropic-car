@@ -24,6 +24,10 @@ function iniciar(raiz: HTMLElement): void {
     }
     conDatos.hidden = false;
 
+    // «Cambiar búsqueda» lleva los datos actuales para que el buscador se rellene solo.
+    const cambiar = raiz.querySelector<HTMLAnchorElement>('[data-cambiar]');
+    if (cambiar) cambiar.search = location.search;
+
     const dias = calcularDias(busqueda.recogida, busqueda.devolucion);
     const etiquetaDias = `${dias} ${dias === 1 ? textos.dayOne : textos.dayMany}`;
     const resumen = raiz.querySelector<HTMLElement>('[data-resumen]');

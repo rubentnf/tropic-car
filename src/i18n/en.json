@@ -7,10 +7,13 @@
         "fleet": "Fleet and prices",
         "how": "How to book",
         "contact": "Contact",
-        "language": "Language"
+        "language": "Language",
+        "mainLabel": "Main",
+        "skip": "Skip to content"
     },
     "footer": {
-        "rights": "Autos Tropic Canarias S.L."
+        "rights": "Autos Tropic Canarias S.L.",
+        "legalLabel": "Legal"
     },
     "search": {
         "title": "Find your car",
@@ -23,6 +26,7 @@
         "returnTime": "Return time",
         "submit": "See cars and prices",
         "errorOrder": "The return must be after the pick-up.",
+        "errorDates": "Choose valid pick-up and return dates.",
         "places": {
             "office": "Costa del Silencio office",
             "airportSouth": "Tenerife South Airport",
@@ -34,7 +38,7 @@
     "results": {
         "title": "Choose your car",
         "group": "Group",
-        "noData": "The search details are missing or not valid.",
+        "noData": "We need your rental location and dates to show you cars and prices.",
         "backToSearch": "Back to search",
         "changeSearch": "Change search",
         "pickup": "Pick-up",
@@ -46,7 +50,7 @@
         "perDay": "per day",
         "total": "Total",
         "taxesIncluded": "Taxes and insurance included",
-        "minDays": "Rented from {n} days",
+        "minDays": "Minimum rental: {n} days",
         "noRate": "No rate for this duration",
         "request": "Request this car",
         "orSimilar": "or similar",
@@ -70,7 +74,7 @@
         "seats": "Child seats",
         "total": "Total",
         "name": "Full name",
-        "phone": "Phone",
+        "phone": "Phone (with country code, e.g. +44)",
         "email": "Email",
         "age": "Driver's age",
         "licenceYears": "Years holding a driving licence",
@@ -80,7 +84,7 @@
         "conditions": "Drivers aged {min} to {max} with at least {years} years of licence.",
         "submit": "Send request",
         "sending": "Sending...",
-        "noData": "The search details are missing or not valid.",
+        "noData": "We need your rental location and dates to show you cars and prices.",
         "backToSearch": "Back to search",
         "errors": {
             "nombre": "Enter your name.",
@@ -107,14 +111,14 @@
         "points": [
             "Taxes included",
             "Air conditioning",
-            "Service in 5 languages"
+            "Website in 5 languages"
         ]
     },
     "home": {
         "fleetTitle": "Our fleet and daily prices",
         "fleetLead": "A selection of our 14 groups. Taxes included.",
         "allGroups": "See all 14 groups",
-        "priceFrom": "per day from 7 days",
+        "priceFrom": "per day, renting for 7 days or more",
         "stepsTitle": "Booking is easy",
         "steps": [
             {

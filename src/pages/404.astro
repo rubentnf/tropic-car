@@ -18,17 +18,18 @@ const nombres = {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <title>404 · Tropic Rent a Car</title>
     </head>
     <body>
-        <div class="contenedor pagina">
+        <main class="contenedor pagina">
             <h1>404</h1>
             <p>
                 Esta página no existe · This page does not exist · Diese Seite
                 existiert nicht · Cette page n’existe pas · Questa pagina non
                 esiste
             </p>
-            <p style="display:flex;flex-wrap:wrap;gap:.75rem">
+            <p class="lista-botones">
                 {
                     locales.map((l, i) => (
                         <a
@@ -40,6 +41,6 @@ const nombres = {
                     ))
                 }
             </p>
-        </div>
+        </main>
     </body>
 </html>

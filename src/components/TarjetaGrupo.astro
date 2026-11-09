@@ -17,12 +17,16 @@ const plazas = grupo.models
 ---
 
 <article class="tarjeta" data-grupo={grupo.id}>
-    <GaleriaGrupo lang={lang} grupo={grupo} />
+    <GaleriaGrupo
+        lang={lang}
+        grupo={grupo}
+        sizes="(min-width: 48rem) 12rem, 90vw"
+    />
     <div class="tarjeta-info">
         <p class="tarjeta-grupo">
             <span class="insignia">{r.group} {grupo.id}</span>
         </p>
-        <h3>{modelos} <small>{r.orSimilar}</small></h3>
+        <h2>{modelos} <small>{r.orSimilar}</small></h2>
         <ul class="etiquetas">
             <li>{r.gearbox[grupo.gearbox]}</li>
             {grupo.air_conditioning && <li>{r.ac}</li>}
@@ -47,8 +51,12 @@ const plazas = grupo.models
             </p>
             <p class="nota">{r.taxesIncluded}</p>
         </div>
-        <a class="boton boton-oscuro" data-solicitar href="#" hidden
-            >{r.request}</a
+        <a
+            class="boton boton-oscuro"
+            data-solicitar
+            href="#"
+            hidden
+            aria-label={`${r.request}: ${r.group} ${grupo.id}`}>{r.request}</a
         >
     </div>
 </article>

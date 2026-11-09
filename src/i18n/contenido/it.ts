@@ -17,6 +17,7 @@ export const it: Contenido = {
         horario: 'Orari',
         abrirMapa: 'Apri in Google Maps',
         cargarMapa: 'Carica la mappa qui',
+        mapaTitulo: 'Mappa',
         preguntasTitulo: 'Domande frequenti',
         preguntas: [
             { pregunta: 'Quali requisiti deve avere il conducente?', respuesta: 'Avere tra 25 e 75 anni e almeno 5 anni di patente.' },

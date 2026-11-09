@@ -64,114 +64,114 @@ const errores = Object.fromEntries(
 
         <div data-con-datos hidden>
             <p>{r.intro}</p>
-        </div>
 
-        <section class="resumen-solicitud" aria-labelledby="titulo-resumen">
-            <h2 id="titulo-resumen">{r.summary}</h2>
-            <dl data-resumen></dl>
-        </section>
+            <section class="resumen-solicitud" aria-labelledby="titulo-resumen">
+                <h2 id="titulo-resumen">{r.summary}</h2>
+                <dl data-resumen></dl>
+            </section>
 
-        <form
-            method="post"
-            action="/api/solicitud"
-            class="formulario"
-            novalidate
-        >
-            <input type="hidden" name="lang" value={lang} />
-            <div class="trampa" aria-hidden="true">
-                <label
-                    >Web <input
+            <form
+                method="post"
+                action="/api/solicitud"
+                class="formulario"
+                novalidate
+            >
+                <input type="hidden" name="lang" value={lang} />
+                <div class="trampa" aria-hidden="true">
+                    <label
+                        >Web <input
+                            type="text"
+                            name="web"
+                            tabindex="-1"
+                            autocomplete="off"
+                        /></label
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="nombre">{r.name}</label>
+                    <input
+                        id="nombre"
+                        name="nombre"
                         type="text"
-                        name="web"
-                        tabindex="-1"
-                        autocomplete="off"
-                    /></label
-                >
-            </div>
-
-            <div class="campo">
-                <label for="nombre">{r.name}</label>
-                <input
-                    id="nombre"
-                    name="nombre"
-                    type="text"
-                    autocomplete="name"
-                    required
-                    maxlength="100"
-                />
-            </div>
-
-            <div class="campo">
-                <label for="telefono">{r.phone}</label>
-                <input
-                    id="telefono"
-                    name="telefono"
-                    type="tel"
-                    autocomplete="tel"
-                    required
-                    maxlength="30"
-                />
-            </div>
-
-            <div class="campo">
-                <label for="email">{r.email}</label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    required
-                    maxlength="150"
-                />
-            </div>
-
-            <div class="fila">
-                <div class="campo">
-                    <label for="edad">{r.age}</label>
-                    <input
-                        id="edad"
-                        name="edad"
-                        type="number"
-                        inputmode="numeric"
-                        min={req.min_age}
-                        max={req.max_age}
+                        autocomplete="name"
                         required
+                        maxlength="100"
                     />
                 </div>
+
                 <div class="campo">
-                    <label for="anos_carnet">{r.licenceYears}</label>
+                    <label for="telefono">{r.phone}</label>
                     <input
-                        id="anos_carnet"
-                        name="anos_carnet"
-                        type="number"
-                        inputmode="numeric"
-                        min={req.min_license_years}
-                        max="60"
+                        id="telefono"
+                        name="telefono"
+                        type="tel"
+                        autocomplete="tel"
                         required
+                        maxlength="30"
                     />
                 </div>
-            </div>
-            <p class="nota">{rellenar(r.conditions)}</p>
-            <div class="campo">
-                <label for="vuelo">{r.flight}</label>
-                <input id="vuelo" name="vuelo" type="text" maxlength="30" />
-            </div>
-            <div class="campo">
-                <label for="comentarios">{r.comments}</label>
-                <textarea
-                    id="comentarios"
-                    name="comentarios"
-                    rows="3"
-                    maxlength="1000"></textarea>
-            </div>
-            <label class="casilla">
-                <input type="checkbox" name="privacidad" required />
-                <span>{r.privacy}</span>
-            </label>
 
-            <p class="error" role="alert" data-mensaje></p>
-            <button class="boton" type="submit">{r.submit}</button>
-        </form>
+                <div class="campo">
+                    <label for="email">{r.email}</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                        maxlength="150"
+                    />
+                </div>
+
+                <div class="fila">
+                    <div class="campo">
+                        <label for="edad">{r.age}</label>
+                        <input
+                            id="edad"
+                            name="edad"
+                            type="number"
+                            inputmode="numeric"
+                            min={req.min_age}
+                            max={req.max_age}
+                            required
+                        />
+                    </div>
+                    <div class="campo">
+                        <label for="anos_carnet">{r.licenceYears}</label>
+                        <input
+                            id="anos_carnet"
+                            name="anos_carnet"
+                            type="number"
+                            inputmode="numeric"
+                            min={req.min_license_years}
+                            max="60"
+                            required
+                        />
+                    </div>
+                </div>
+                <p class="nota">{rellenar(r.conditions)}</p>
+                <div class="campo">
+                    <label for="vuelo">{r.flight}</label>
+                    <input id="vuelo" name="vuelo" type="text" maxlength="30" />
+                </div>
+                <div class="campo">
+                    <label for="comentarios">{r.comments}</label>
+                    <textarea
+                        id="comentarios"
+                        name="comentarios"
+                        rows="3"
+                        maxlength="1000"></textarea>
+                </div>
+                <label class="casilla">
+                    <input type="checkbox" name="privacidad" required />
+                    <span>{r.privacy}</span>
+                </label>
+
+                <p class="error" role="alert" data-mensaje></p>
+                <button class="boton" type="submit">{r.submit}</button>
+            </form>
+        </div>
     </div>
 </Base>
 

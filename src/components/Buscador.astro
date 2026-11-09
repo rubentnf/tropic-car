@@ -99,7 +99,9 @@ const horas = Array.from(
     <button class="boton" type="submit">{s.submit}</button>
 </form>
 
-<script is:inline define:vars={{ mensajeOrden: s.errorOrder }}>
+<script
+    is:inline
+    define:vars={{ mensajeOrden: s.errorOrder, mensajeFechas: s.errorDates }}>
     (function () {
         var form = document.querySelector("[data-buscador]");
         if (!form) return;
@@ -115,6 +117,22 @@ const horas = Array.from(
         f.fecha_recogida.min = iso;
         f.fecha_devolucion.min = iso;
 
+        // Al venir de «Cambiar búsqueda» se recuperan los datos anteriores.
+        // Lo que no sea una opción válida o una fecha futura se ignora.
+        var previos = new URLSearchParams(location.search);
+        ["lugar_recogida", "lugar_devolucion", "hora_recogida", "hora_devolucion"].forEach(function (nombre) {
+            var valor = previos.get(nombre);
+            var existe = Array.from(f[nombre].options).some(function (o) {
+                return o.value === valor;
+            });
+            if (existe) f[nombre].value = valor;
+        });
+        ["fecha_recogida", "fecha_devolucion"].forEach(function (nombre) {
+            var valor = previos.get(nombre);
+            if (valor && valor >= iso) f[nombre].value = valor;
+        });
+        if (f.fecha_recogida.value) f.fecha_devolucion.min = f.fecha_recogida.value;
+
         function fecha(d, h) {
             return new Date(d + "T" + h + ":00");
         }
@@ -127,7 +145,8 @@ const horas = Array.from(
             error.textContent = "";
             if (!form.checkValidity()) {
                 e.preventDefault();
-                form.reportValidity();
+                error.textContent = mensajeFechas;
+                form.querySelector(":invalid").focus();
                 return;
             }
             var a = fecha(f.fecha_recogida.value, f.hora_recogida.value);

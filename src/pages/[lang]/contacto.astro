@@ -18,8 +18,10 @@ const c = getContenido(lang).contacto;
 
         <dl class="datos-contacto">
             <dt>{c.direccion}</dt><dd>{empresa.domicilio}</dd>
-            <dt>{c.telefono}</dt><dd>{empresa.telefono}</dd>
-            <dt>{c.email}</dt><dd>{empresa.email}</dd>
+            <dt>{c.telefono}</dt>
+            <dd><a href={`tel:${empresa.telefono.replace(/\s/g, "")}`}>{empresa.telefono}</a></dd>
+            <dt>{c.email}</dt>
+            <dd><a href={`mailto:${empresa.email}`}>{empresa.email}</a></dd>
             <dt>{c.horario}</dt><dd>{empresa.horario[lang]}</dd>
         </dl>
 
@@ -34,7 +36,12 @@ const c = getContenido(lang).contacto;
 
         {
             empresa.mapaEmbedUrl && (
-                <div class="mapa" data-mapa data-url={empresa.mapaEmbedUrl}>
+                <div
+                    class="mapa"
+                    data-mapa
+                    data-url={empresa.mapaEmbedUrl}
+                    data-titulo={c.mapaTitulo}
+                >
                     <button
                         type="button"
                         class="boton boton-secundario"
@@ -65,7 +72,7 @@ const c = getContenido(lang).contacto;
     mapa?.querySelector("[data-cargar-mapa]")?.addEventListener("click", () => {
         const iframe = document.createElement("iframe");
         iframe.src = mapa.dataset.url ?? "";
-        iframe.title = "Mapa";
+        iframe.title = mapa.dataset.titulo ?? "";
         iframe.loading = "lazy";
         iframe.referrerPolicy = "no-referrer";
         mapa.replaceChildren(iframe);

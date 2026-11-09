@@ -6,7 +6,7 @@ export const en: Contenido = {
         titulo: 'Our fleet',
         intro: 'Fourteen vehicle groups. Price per day depending on the rental length, with taxes and insurance included.',
         tramos: { '1': '1 day', '2-3': '2-3 days', '4-6': '4-6 days', '7+': '7 or more' },
-        nota: 'Models are indicative, "or similar". The total price is calculated when you choose your dates.',
+        nota: 'Models are indicative, “or similar”. The total price is calculated when you choose your dates.',
         reservar: 'See the price for my dates',
     },
     contacto: {
@@ -17,6 +17,7 @@ export const en: Contenido = {
         horario: 'Opening hours',
         abrirMapa: 'Open in Google Maps',
         cargarMapa: 'Load map here',
+        mapaTitulo: 'Map',
         preguntasTitulo: 'Frequently asked questions',
         preguntas: [
             { pregunta: 'What are the driver requirements?', respuesta: 'Drivers must be between 25 and 75 years old and have held a driving licence for at least 5 years.' },

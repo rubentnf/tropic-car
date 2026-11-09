@@ -17,6 +17,7 @@ export const de: Contenido = {
         horario: 'Öffnungszeiten',
         abrirMapa: 'In Google Maps öffnen',
         cargarMapa: 'Karte hier laden',
+        mapaTitulo: 'Karte',
         preguntasTitulo: 'Häufige Fragen',
         preguntas: [
             { pregunta: 'Welche Voraussetzungen muss der Fahrer erfüllen?', respuesta: 'Der Fahrer muss zwischen 25 und 75 Jahre alt sein und seit mindestens 5 Jahren einen Führerschein besitzen.' },

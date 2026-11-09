@@ -10,8 +10,11 @@ interface Props {
     grupo: Grupo;
     /** Muestra los cuatro tramos de precio (página Flota). */
     detalle?: boolean;
+    /** Nivel del título: 3 bajo una sección con h2 (portada), 2 directamente bajo el h1 (Flota). */
+    nivel?: 2 | 3;
 }
-const { lang, grupo, detalle = false } = Astro.props;
+const { lang, grupo, detalle = false, nivel = 3 } = Astro.props;
+const Titulo = `h${nivel}`;
 const t = getDictionary(lang);
 const r = t.results;
 const tramosTexto = getContenido(lang).flota.tramos;
@@ -30,7 +33,7 @@ const tramos: Tramo[] = ["1", "2-3", "4-6", "7+"];
         <span class="cambio">{r.gearbox[grupo.gearbox]}</span>
     </div>
     <GaleriaGrupo lang={lang} grupo={grupo} />
-    <h3>{modelos} <small>{r.orSimilar}</small></h3>
+    <Titulo>{modelos} <small>{r.orSimilar}</small></Titulo>
     <ul class="etiquetas">
         {grupo.air_conditioning && <li>{r.ac}</li>}
         {

@@ -25,6 +25,7 @@ export interface Contenido {
         horario: string;
         abrirMapa: string;
         cargarMapa: string;
+        mapaTitulo: string;
         preguntasTitulo: string;
         preguntas: PreguntaFrecuente[];
     };

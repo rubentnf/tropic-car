@@ -6,7 +6,7 @@ export const es: Contenido = {
         titulo: 'Nuestra flota',
         intro: 'Catorce grupos de vehículos. Precio por día según la duración del alquiler, con impuestos y seguro incluidos.',
         tramos: { '1': '1 día', '2-3': '2-3 días', '4-6': '4-6 días', '7+': '7 o más' },
-        nota: 'Los modelos son orientativos, "o similar". El precio total se calcula al elegir fechas.',
+        nota: 'Los modelos son orientativos, «o similar». El precio total se calcula al elegir fechas.',
         reservar: 'Ver precio para mis fechas',
     },
     contacto: {
@@ -17,6 +17,7 @@ export const es: Contenido = {
         horario: 'Horario',
         abrirMapa: 'Abrir en Google Maps',
         cargarMapa: 'Cargar mapa aquí',
+        mapaTitulo: 'Mapa',
         preguntasTitulo: 'Preguntas frecuentes',
         preguntas: [
             { pregunta: '¿Qué requisitos tiene que cumplir el conductor?', respuesta: 'Tener entre 25 y 75 años y al menos 5 años de carnet de conducir.' },
