@@ -58,7 +58,9 @@ const textos = {
         <div data-con-datos hidden>
             <div class="barra">
                 <p data-resumen></p>
-                <a href={localizedPath(lang)}>{r.changeSearch}</a>
+                <a href={`${localizedPath(lang)}#buscador`} data-cambiar
+                    >{r.changeSearch}</a
+                >
             </div>
 
             <div class="campo campo-sillas">

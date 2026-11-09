@@ -5,21 +5,25 @@
     --blanco: #ffffff;
     --texto: #232321;
     --texto-2: #5c5b55;
+    --texto-hero: #3e3d38;
     --linea: #e3ded0;
-    --campo-borde: #cfc9b8;
+    --campo-borde: #8f8a7a;
     --amarillo: #f5c842;
     --amarillo-suave: #fbf0c7;
     --amarillo-fuerte: #e0a800;
     --carbon: #232321;
+    --carbon-suave: #3a3a37;
     --error: #b42318;
-    -foco: #1b5fd1;
+    --foco: #1b5fd1;
 
     /* Tipografía */
     --fuente: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
     /* Forma */
+    --radio-chico: 8px;
     --radio: 14px;
     --radio-campo: 10px;
     --radio-grande: 18px;
+    --radio-pastilla: 999px;
     --sombra: 0 10px 30px rgba(35 35 33 / 0.1);
 }

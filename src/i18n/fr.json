@@ -7,10 +7,13 @@
         "fleet": "Flotte et tarifs",
         "how": "Comment réserver",
         "contact": "Contact",
-        "language": "Langue"
+        "language": "Langue",
+        "mainLabel": "Principale",
+        "skip": "Aller au contenu"
     },
     "footer": {
-        "rights": "Autos Tropic Canarias S.L."
+        "rights": "Autos Tropic Canarias S.L.",
+        "legalLabel": "Mentions légales"
     },
     "search": {
         "title": "Trouvez votre voiture",
@@ -24,6 +27,7 @@
         "returnTime": "Heure de restitution",
         "submit": "Voir les voitures et les prix",
         "errorOrder": "La restitution doit être postérieure à la prise en charge.",
+        "errorDates": "Choisissez des dates de prise en charge et de restitution valides.",
         "places": {
             "office": "Agence Costa del Silencio",
             "airportSouth": "Aéroport de Tenerife Sud",
@@ -34,7 +38,7 @@
     "results": {
         "title": "Choisissez votre voiture",
         "group": "Groupe",
-        "noData": "Les données de la recherche sont manquantes ou invalides.",
+        "noData": "Il nous faut le lieu et les dates de location pour afficher les voitures et les prix.",
         "backToSearch": "Retour à la recherche",
         "changeSearch": "Modifier la recherche",
         "pickup": "Prise en charge",
@@ -70,7 +74,7 @@
         "seats": "Sièges enfant",
         "total": "Total",
         "name": "Nom et prénom",
-        "phone": "Téléphone",
+        "phone": "Téléphone (avec indicatif, ex. +33)",
         "email": "E-mail",
         "age": "Âge du conducteur",
         "licenceYears": "Années de permis de conduire",
@@ -80,7 +84,7 @@
         "conditions": "Conducteurs de {min} à {max} ans avec au moins {years} ans de permis.",
         "submit": "Envoyer la demande",
         "sending": "Envoi en cours...",
-        "noData": "Les données de la recherche sont manquantes ou invalides.",
+        "noData": "Il nous faut le lieu et les dates de location pour afficher les voitures et les prix.",
         "backToSearch": "Retour à la recherche",
         "errors": {
             "nombre": "Saisissez votre nom.",
@@ -107,14 +111,14 @@
         "points": [
             "Taxes incluses",
             "Climatisation",
-            "Service en 5 langues"
+            "Site en 5 langues"
         ]
     },
     "home": {
         "fleetTitle": "Notre flotte et nos prix par jour",
         "fleetLead": "Une sélection de nos 14 groupes. Taxes incluses.",
         "allGroups": "Voir les 14 groupes",
-        "priceFrom": "par jour à partir de 7 jours",
+        "priceFrom": "par jour, pour 7 jours de location ou plus",
         "stepsTitle": "Réserver est simple",
         "steps": [
             {

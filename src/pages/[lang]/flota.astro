@@ -23,15 +23,16 @@ const data = tarifas as unknown as Tarifas;
         <div class="rejilla-flota">
             {
                 data.groups.map((grupo) => (
-                    <TarjetaFlota lang={lang} grupo={grupo} detalle />
+                    <TarjetaFlota lang={lang} grupo={grupo} detalle nivel={2} />
                 ))
             }
         </div>
 
-        <p class="nota" style="margin-top: 1.5rem">{f.nota}</p>
-        <p>
+        <div class="flota-cierre">
+            <p class="nota">{f.nota}</p>
             <a class="boton" href={`${localizedPath(lang)}#buscador`}
-                >{f.reservar}</a>
-        </p>
+                >{f.reservar}</a
+            >
+        </div>
     </div>
 </Base>

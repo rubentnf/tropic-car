@@ -7,8 +7,14 @@ import type { Grupo } from "../lib/tipos";
 interface Props {
     lang: Locale;
     grupo: Grupo;
+    /** Ancho con el que se muestra la foto, para que el navegador elija el archivo adecuado. */
+    sizes?: string;
 }
-const { lang, grupo } = Astro.props;
+const {
+    lang,
+    grupo,
+    sizes = "(min-width: 64rem) 20rem, (min-width: 40rem) 45vw, 90vw",
+} = Astro.props;
 const r = getDictionary(lang).results;
 
 // Una foto grande y una miniatura por cada modelo del grupo que tenga foto.
@@ -18,11 +24,28 @@ const fotos = await Promise.all(
             const foto = fotoModelo(m.name);
             return foto ? [{ nombre: m.name, foto }] : [];
         })
-        .map(async ({ nombre, foto }) => ({
-            nombre,
-            grande: await getImage({ src: foto, width: 640, format: "webp" }),
-            pequena: await getImage({ src: foto, width: 112, format: "webp" }),
-        })),
+        .map(async ({ nombre, foto }) => {
+            const grande = await getImage({
+                src: foto,
+                width: 640,
+                format: "webp",
+            });
+            const media = await getImage({
+                src: foto,
+                width: 320,
+                format: "webp",
+            });
+            return {
+                nombre,
+                grande,
+                srcset: `${media.src} 320w, ${grande.src} ${grande.attributes.width}w`,
+                pequena: await getImage({
+                    src: foto,
+                    width: 112,
+                    format: "webp",
+                }),
+            };
+        }),
 );
 const primera = fotos[0];
 ---
@@ -34,6 +57,8 @@ const primera = fotos[0];
                 <img
                     data-principal
                     src={primera.grande.src}
+                    srcset={primera.srcset}
+                    sizes={sizes}
                     width={primera.grande.attributes.width}
                     height={primera.grande.attributes.height}
                     alt={primera.nombre}
@@ -49,6 +74,7 @@ const primera = fotos[0];
                             class="miniatura"
                             data-miniatura
                             data-grande={f.grande.src}
+                            data-srcset={f.srcset}
                             data-nombre={f.nombre}
                             aria-pressed={i === 0 ? "true" : "false"}
                             aria-label={r.showModel.replace(
@@ -83,6 +109,7 @@ const primera = fotos[0];
         const principal =
             galeria.querySelector<HTMLImageElement>("[data-principal]");
         if (principal) {
+            principal.srcset = boton.dataset.srcset ?? "";
             principal.src = boton.dataset.grande ?? principal.src;
             principal.alt = boton.dataset.nombre ?? "";
         }

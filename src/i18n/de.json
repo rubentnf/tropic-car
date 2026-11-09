@@ -7,10 +7,13 @@
         "fleet": "Flotte und Preise",
         "how": "So buchen Sie",
         "contact": "Kontakt",
-        "language": "Sprache"
+        "language": "Sprache",
+        "mainLabel": "Hauptmenü",
+        "skip": "Zum Inhalt springen"
     },
     "footer": {
-        "rights": "Autos Tropic Canarias S.L."
+        "rights": "Autos Tropic Canarias S.L.",
+        "legalLabel": "Rechtliches"
     },
     "search": {
         "title": "Auto suchen",
@@ -24,6 +27,7 @@
         "returnTime": "Rückgabezeit",
         "submit": "Autos und Preise ansehen",
         "errorOrder": "Die Rückgabe muss nach der Abholung liegen.",
+        "errorDates": "Wählen Sie ein gültiges Abhol- und Rückgabedatum.",
         "places": {
             "office": "Büro Costa del Silencio",
             "airportSouth": "Flughafen Teneriffa Süd",
@@ -34,7 +38,7 @@
     "results": {
         "title": "Wählen Sie Ihr Auto",
         "group": "Gruppe",
-        "noData": "Die Suchdaten fehlen oder sind ungültig.",
+        "noData": "Für Autos und Preise brauchen wir Ort und Daten Ihrer Miete.",
         "backToSearch": "Zurück zur Suche",
         "changeSearch": "Suche ändern",
         "pickup": "Abholung",
@@ -70,7 +74,7 @@
         "seats": "Kindersitze",
         "total": "Gesamt",
         "name": "Vor- und Nachname",
-        "phone": "Telefon",
+        "phone": "Telefon (mit Ländervorwahl, z. B. +49)",
         "email": "E-Mail",
         "age": "Alter des Fahrers",
         "licenceYears": "Jahre Führerschein",
@@ -80,7 +84,7 @@
         "conditions": "Fahrer von {min} bis {max} Jahren mit mindestens {years} Jahren Führerschein.",
         "submit": "Anfrage senden",
         "sending": "Wird gesendet...",
-        "noData": "Die Suchdaten fehlen oder sind ungültig.",
+        "noData": "Für Autos und Preise brauchen wir Ort und Daten Ihrer Miete.",
         "backToSearch": "Zurück zur Suche",
         "errors": {
             "nombre": "Geben Sie Ihren Namen ein.",
@@ -107,14 +111,14 @@
         "points": [
             "Steuern inklusive",
             "Klimaanlage",
-            "Service in 5 Sprachen"
+            "Website in 5 Sprachen"
         ]
     },
     "home": {
         "fleetTitle": "Unsere Flotte und Tagespreise",
         "fleetLead": "Eine Auswahl unserer 14 Gruppen. Steuern inklusive.",
         "allGroups": "Alle 14 Gruppen ansehen",
-        "priceFrom": "pro Tag ab 7 Tagen",
+        "priceFrom": "pro Tag bei mindestens 7 Miettagen",
         "stepsTitle": "Buchen ist einfach",
         "steps": [
             {

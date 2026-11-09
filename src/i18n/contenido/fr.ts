@@ -17,6 +17,7 @@ export const fr: Contenido = {
         horario: 'Horaires',
         abrirMapa: 'Ouvrir dans Google Maps',
         cargarMapa: 'Charger la carte ici',
+        mapaTitulo: 'Carte',
         preguntasTitulo: 'Questions fréquentes',
         preguntas: [
             { pregunta: 'Quelles conditions le conducteur doit-il remplir ?', respuesta: 'Avoir entre 25 et 75 ans et au moins 5 ans de permis de conduire.' },

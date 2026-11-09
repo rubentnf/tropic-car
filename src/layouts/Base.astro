@@ -2,6 +2,7 @@
 import "@fontsource-variable/archivo";
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import { PUBLIC_UMAMI_WEBSITE_ID } from "astro:env/client";
 import Consentimiento from "../components/Consentimiento.astro";
 import logo from "../assets/logo.png";
 import { empresa } from "../data/empresa";
@@ -42,6 +43,8 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <title>{textoTitulo}</title>
         <meta name="description" content={textoDescripcion} />
         {noindex && <meta name="robots" content="noindex" />}
@@ -70,6 +73,7 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
         }
     </head>
     <body>
+        <a class="boton saltar" href="#contenido">{t.nav.skip}</a>
         <header class="cabecera">
             <div class="contenedor">
                 <a
@@ -85,35 +89,30 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                         loading="eager"
                     />
                 </a>
-                <nav class="nav" aria-label="Principal">
+                <nav class="nav" aria-label={t.nav.mainLabel}>
                     <a href={localizedPath(lang, "flota")}>{t.nav.fleet}</a>
                     <a href={`${localizedPath(lang)}#como`}>{t.nav.how}</a>
                     <a href={localizedPath(lang, "contacto")}>{t.nav.contact}</a
                     >
-                    <span
-                        class="idiomas"
-                        role="group"
-                        aria-label={t.nav.language}
-                    >
-                        {
-                            locales.map((l) => (
-                                <a
-                                    href={localizedPath(l, ruta)}
-                                    hreflang={l}
-                                    lang={l}
-                                    aria-current={
-                                        l === lang ? "true" : undefined
-                                    }
-                                >
-                                    {l.toUpperCase()}
-                                </a>
-                            ))
-                        }
-                    </span>
                 </nav>
+                <div class="idiomas" role="group" aria-label={t.nav.language}>
+                    {
+                        locales.map((l) => (
+                            <a
+                                href={localizedPath(l, ruta)}
+                                data-idioma
+                                hreflang={l}
+                                lang={l}
+                                aria-current={l === lang ? "true" : undefined}
+                            >
+                                {l.toUpperCase()}
+                            </a>
+                        ))
+                    }
+                </div>
             </div>
         </header>
-        <main><slot /></main>
+        <main id="contenido" tabindex="-1"><slot /></main>
         <footer class="pie">
             <div class="contenedor pie-contenido">
                 <div class="pie-datos">
@@ -137,7 +136,7 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                         )
                     }
                 </div>
-                <nav class="pie-enlaces" aria-label="Legal">
+                <nav class="pie-enlaces" aria-label={t.footer.legalLabel}>
                     <a href={localizedPath(lang, "aviso-legal")}
                         >{pie.avisoLegal}</a
                     >
@@ -145,12 +144,29 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                         >{pie.privacidad}</a
                     >
                     <a href={localizedPath(lang, "cookies")}>{pie.cookies}</a>
-                    <button type="button" class="enlace" data-configurar-cookies
-                        >{pie.configurarCookies}</button
-                    >
+                    {
+                        PUBLIC_UMAMI_WEBSITE_ID && (
+                            <button
+                                type="button"
+                                class="enlace"
+                                data-configurar-cookies
+                            >
+                                {pie.configurarCookies}
+                            </button>
+                        )
+                    }
                 </nav>
             </div>
         </footer>
         <Consentimiento lang={lang} />
     </body>
 </html>
+
+<script>
+    // Al cambiar de idioma se conserva la búsqueda (lugares, fechas y coche elegido).
+    for (const enlace of document.querySelectorAll<HTMLAnchorElement>(
+        "[data-idioma]",
+    )) {
+        enlace.search = location.search;
+    }
+</script>

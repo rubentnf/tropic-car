@@ -86,6 +86,7 @@ const activo = Boolean(PUBLIC_UMAMI_WEBSITE_ID);
             .querySelector("[data-configurar-cookies]")
             ?.addEventListener("click", () => {
                 caja.hidden = false;
+                caja.querySelector<HTMLElement>("[data-aceptar]")?.focus();
             });
     }
 </script>

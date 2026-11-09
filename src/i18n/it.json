@@ -7,10 +7,13 @@
         "fleet": "Flotta e prezzi",
         "how": "Come prenotare",
         "contact": "Contatti",
-        "language": "Lingua"
+        "language": "Lingua",
+        "mainLabel": "Principale",
+        "skip": "Vai al contenuto"
     },
     "footer": {
-        "rights": "Autos Tropic Canarias S.L."
+        "rights": "Autos Tropic Canarias S.L.",
+        "legalLabel": "Note legali"
     },
     "search": {
         "title": "Trova la tua auto",
@@ -24,6 +27,7 @@
         "returnTime": "Ora di riconsegna",
         "submit": "Vedi auto e prezzi",
         "errorOrder": "La riconsegna deve essere successiva al ritiro.",
+        "errorDates": "Scegli date di ritiro e riconsegna valide.",
         "places": {
             "office": "Ufficio Costa del Silencio",
             "airportSouth": "Aeroporto di Tenerife Sud",
@@ -34,7 +38,7 @@
     "results": {
         "title": "Scegli la tua auto",
         "group": "Gruppo",
-        "noData": "I dati della ricerca mancano o non sono validi.",
+        "noData": "Ci servono luogo e date del noleggio per mostrarti auto e prezzi.",
         "backToSearch": "Torna alla ricerca",
         "changeSearch": "Cambia ricerca",
         "pickup": "Ritiro",
@@ -70,7 +74,7 @@
         "seats": "Seggiolini per bambini",
         "total": "Totale",
         "name": "Nome e cognome",
-        "phone": "Telefono",
+        "phone": "Telefono (con prefisso, es. +39)",
         "email": "Email",
         "age": "Età del conducente",
         "licenceYears": "Anni di patente",
@@ -80,7 +84,7 @@
         "conditions": "Conducenti da {min} a {max} anni con almeno {years} anni di patente.",
         "submit": "Invia richiesta",
         "sending": "Invio in corso...",
-        "noData": "I dati della ricerca mancano o non sono validi.",
+        "noData": "Ci servono luogo e date del noleggio per mostrarti auto e prezzi.",
         "backToSearch": "Torna alla ricerca",
         "errors": {
             "nombre": "Inserisci il tuo nome.",
@@ -107,14 +111,14 @@
         "points": [
             "Tasse incluse",
             "Aria condizionata",
-            "Assistenza in 5 lingue"
+            "Sito in 5 lingue"
         ]
     },
     "home": {
         "fleetTitle": "La nostra flotta e i prezzi al giorno",
         "fleetLead": "Una selezione dei nostri 14 gruppi. Tasse incluse.",
         "allGroups": "Vedi tutti i 14 gruppi",
-        "priceFrom": "al giorno da 7 giorni",
+        "priceFrom": "al giorno, noleggiando 7 giorni o più",
         "stepsTitle": "Prenotare è facile",
         "steps": [
             {
