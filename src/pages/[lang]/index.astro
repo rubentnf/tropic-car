@@ -2,15 +2,13 @@
 import Base from "../../layouts/Base.astro";
 import Buscador from "../../components/Buscador.astro";
 import PasosReserva from "../../components/PasosReserva.astro";
-import TarjetaFlota from "../../components/TarjetaFlota.astro";
-import tarifas from "../../data/tarifas.json";
+import Ventajas from "../../components/Ventajas.astro";
 import {
     getDictionary,
     locales,
     localizedPath,
     type Locale,
 } from "../../i18n/utils";
-import type { Tarifas } from "../../lib/tipos";
 
 export function getStaticPaths() {
     return locales.map((lang) => ({ params: { lang } }));
@@ -18,18 +16,12 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Locale;
 const t = getDictionary(lang);
-const data = tarifas as unknown as Tarifas;
-// Selección para la portada: los grupos más pedidos. Los 14 están en la página Flota
-const destacados = ["A", "B", "C", "F", "H", "L"];
-const grupos = destacados.flatMap((id) =>
-    data.groups.filter((g) => g.id === id),
-);
 ---
 
 <Base lang={lang}>
     <section class="hero">
         <div class="contenedor">
-            <div class="hero-texto">
+            <div>
                 <h1>{t.hero.title}</h1>
                 <p class="hero-lead">{t.hero.lead}</p>
                 <ul class="puntos">
@@ -40,6 +32,8 @@ const grupos = destacados.flatMap((id) =>
         </div>
     </section>
 
+    <Ventajas lang={lang} />
+
     <section class="seccion" aria-labelledby="titulo-flota">
         <div class="contenedor">
             <div class="seccion-cabecera">
@@ -47,17 +41,9 @@ const grupos = destacados.flatMap((id) =>
                     <h2 id="titulo-flota">{t.home.fleetTitle}</h2>
                     <p class="seccion-lead">{t.home.fleetLead}</p>
                 </div>
-                <a
-                    class="boton boton-secundario"
-                    href={localizedPath(lang, "flota")}>{t.home.allGroups}</a
+                <a class="boton" href={localizedPath(lang, "flota")}
+                    >{t.home.allGroups}</a
                 >
-            </div>
-            <div class="rejilla-flota">
-                {
-                    grupos.map((grupo) => (
-                        <TarjetaFlota lang={lang} grupo={grupo} />
-                    ))
-                }
             </div>
         </div>
     </section>

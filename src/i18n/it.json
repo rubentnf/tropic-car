@@ -119,9 +119,28 @@
     },
     "home": {
         "fleetTitle": "La nostra flotta e i prezzi al giorno",
-        "fleetLead": "Una selezione dei nostri 14 gruppi. Tasse incluse.",
+        "fleetLead": "Quattordici gruppi, dalle utilitarie ai furgoni e alle cabrio. Tasse incluse.",
         "allGroups": "Vedi tutti i 14 gruppi",
         "priceFrom": "al giorno, noleggiando 7 giorni o più",
+        "benefitsTitle": "Perché noleggiare con noi",
+        "benefits": [
+            {
+                "title": "Assicurazione kasko",
+                "text": "Franchigia di 150 € e nessun importo bloccato sulla tua carta."
+            },
+            {
+                "title": "Nessun pagamento sul sito",
+                "text": "Invii la richiesta e la confermiamo con te. All’invio non si paga nulla."
+            },
+            {
+                "title": "Consegna in tutta l’isola",
+                "text": "Ufficio, aeroporti, porti, hotel e appartamenti."
+            },
+            {
+                "title": "Dal 1992",
+                "text": "Oltre 30 anni di noleggio auto a Tenerife."
+            }
+        ],
         "stepsTitle": "Prenotare è facile",
         "steps": [
             {

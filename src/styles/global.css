@@ -746,7 +746,7 @@ main:focus {
     letter-spacing: -.02em;
 }
 
-.pagina > h2 {
+.pagina>h2 {
     margin: 2.5rem 0 .5rem;
     font-size: clamp(1.4rem, 4vw, 1.75rem);
     font-weight: 800;
@@ -987,6 +987,7 @@ main:focus {
 }
 
 @media (min-width: 22.5rem) {
+
     /* Etiqueta, campo y error comparten filas: si una etiqueta ocupa dos líneas, los campos siguen alineados. */
     .formulario .fila {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1067,6 +1068,7 @@ main:focus {
 
 /* ---------- Respuesta al pasar el ratón ---------- */
 @media (hover: hover) {
+
     .nav a:hover,
     .preguntas summary:hover {
         text-decoration: underline;
@@ -1079,4 +1081,46 @@ main:focus {
     .miniatura:not([aria-pressed='true']):hover {
         border-color: var(--campo-borde);
     }
+}
+
+/* ---------- Portada: ventajas ---------- */
+.ventajas {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.ventaja {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 1.1rem 1.25rem;
+}
+
+.ventaja h3 {
+    margin: 0 0 .35rem;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.ventaja h3::before {
+    content: '✓';
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: var(--amarillo);
+    font-size: .85rem;
+}
+
+.ventaja p {
+    margin: 0;
+    color: var(--texto-2);
 }
