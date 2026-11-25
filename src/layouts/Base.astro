@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import { PUBLIC_UMAMI_WEBSITE_ID } from "astro:env/client";
 import Consentimiento from "../components/Consentimiento.astro";
 import logo from "../assets/logo.png";
+import logoClaro from "../assets/logo-claro.png";
 import { empresa } from "../data/empresa";
 import { getContenido } from "../i18n/contenido";
 import {
@@ -43,6 +44,22 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <script is:inline>
+            // Se ejecuta antes de pintar para que no haya parpadeo. Misma lógica que temaInicial() de src/lib/tema.ts.
+            (function () {
+                var tema = null;
+                try {
+                    tema = localStorage.getItem("tema");
+                } catch (e) {}
+                if (tema !== "claro" && tema !== "oscuro") {
+                    tema = window.matchMedia("(prefers-color-scheme: dark)").matches
+                        ? "oscuro"
+                        : "claro";
+                }
+                document.documentElement.setAttribute("data-tema", tema);
+            })();
+        </script>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <title>{textoTitulo}</title>
@@ -82,8 +99,18 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                     aria-label="Tropic Rent a Car"
                 >
                     <Image
+                        class="logo-para-claro"
                         src={logo}
                         alt="Tropic Rent a Car"
+                        height={112}
+                        densities={[1, 2]}
+                        loading="eager"
+                    />
+                    <Image
+                        class="logo-para-oscuro"
+                        src={logoClaro}
+                        alt=""
+                        aria-hidden="true"
                         height={112}
                         densities={[1, 2]}
                         loading="eager"
@@ -110,6 +137,17 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
                         ))
                     }
                 </div>
+                <button
+                    type="button"
+                    class="tema-boton"
+                    data-tema-boton
+                    aria-pressed="false"
+                    aria-label={t.nav.theme}
+                    title={t.nav.theme}
+                >
+                    <span class="tema-luna" aria-hidden="true">☾</span>
+                    <span class="tema-sol" aria-hidden="true">☀</span>
+                </button>
             </div>
         </header>
         <main id="contenido" tabindex="-1"><slot /></main>
@@ -159,6 +197,9 @@ const pendiente = (valor: string) => valor.includes("PENDIENTE");
             </div>
         </footer>
         <Consentimiento lang={lang} />
+        <script>
+            import "../scripts/tema";
+        </script>
     </body>
 </html>
 

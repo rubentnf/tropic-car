@@ -1,182 +1,182 @@
 {
-  "meta": {
-    "title": "Tropic Rent a Car · Car hire in Tenerife",
-    "description": "Hire a car in Tenerife with Tropic Rent a Car. Clear prices, insurance included and direct service."
-  },
-  "nav": {
-    "fleet": "Fleet and prices",
-    "how": "How to book",
-    "contact": "Contact",
-    "language": "Language",
-    "mainLabel": "Main",
-    "skip": "Skip to content",
-    "theme": "Dark theme"
-  },
-  "footer": {
-    "rights": "Autos Tropic Canarias S.L.",
-    "legalLabel": "Legal"
-  },
-  "search": {
-    "title": "Find your car",
-    "pickupPlace": "Pick-up location",
-    "returnPlace": "Return location",
-    "sameAsPickup": "Same as pick-up",
-    "pickupDate": "Pick-up date",
-    "pickupTime": "Pick-up time",
-    "returnDate": "Return date",
-    "returnTime": "Return time",
-    "submit": "See cars and prices",
-    "errorOrder": "The return must be after the pick-up.",
-    "errorDates": "Choose valid pick-up and return dates.",
-    "places": {
-      "office": "Costa del Silencio office",
-      "airportSouth": "Tenerife South Airport",
-      "airportNorth": "Tenerife North Airport",
-      "port": "Port",
-      "hotel": "Hotel or accommodation",
-      "address": "Apartment or private address"
+    "meta": {
+        "title": "Tropic Rent a Car · Car hire in Tenerife",
+        "description": "Hire a car in Tenerife with Tropic Rent a Car. Clear prices, insurance included and direct service."
     },
-    "lead": "Choose your dates and see the total price instantly."
-  },
-  "results": {
-    "title": "Choose your car",
-    "group": "Group",
-    "noData": "We need your rental location and dates to show you cars and prices.",
-    "backToSearch": "Back to search",
-    "changeSearch": "Change search",
-    "pickup": "Pick-up",
-    "return": "Return",
-    "dayOne": "day",
-    "dayMany": "days",
-    "seats": "Child seats",
-    "seatsHint": "{price} per seat per day",
-    "perDay": "per day",
-    "total": "Total",
-    "taxesIncluded": "Taxes and insurance included",
-    "minDays": "Minimum rental: {n} days",
-    "noRate": "No rate for this duration",
-    "request": "Request this car",
-    "orSimilar": "or similar",
-    "seatsLabel": "seats",
-    "ac": "Air conditioning",
-    "gearbox": {
-      "manual": "Manual",
-      "automatic": "Automatic",
-      "manual_or_automatic": "Manual or automatic"
+    "nav": {
+        "fleet": "Fleet and prices",
+        "how": "How to book",
+        "contact": "Contact",
+        "language": "Language",
+        "mainLabel": "Main",
+        "skip": "Skip to content",
+        "theme": "Dark theme"
     },
-    "showModel": "See {model}",
-    "filters": {
-      "title": "Filter",
-      "gearbox": "Gearbox",
-      "type": "Type",
-      "seats": "Seats",
-      "anySeats": "Any",
-      "seatsMin": "{n} or more",
-      "sort": "Sort by",
-      "sortAsc": "Total price, low to high",
-      "sortDesc": "Total price, high to low",
-      "sortSeats": "Most seats",
-      "showing": "{n} of {total} groups",
-      "noMatch": "No group matches those filters. Try removing one.",
-      "tiers": "Price per day depending on rental length",
-      "types": {
-        "utilitario": "Small cars",
-        "suv": "SUVs",
-        "descapotable": "Convertibles",
-        "furgoneta": "Vans and people carriers"
-      }
+    "footer": {
+        "rights": "Autos Tropic Canarias S.L.",
+        "legalLabel": "Legal"
+    },
+    "search": {
+        "title": "Find your car",
+        "pickupPlace": "Pick-up location",
+        "returnPlace": "Return location",
+        "sameAsPickup": "Same as pick-up",
+        "pickupDate": "Pick-up date",
+        "pickupTime": "Pick-up time",
+        "returnDate": "Return date",
+        "returnTime": "Return time",
+        "submit": "See cars and prices",
+        "errorOrder": "The return must be after the pick-up.",
+        "errorDates": "Choose valid pick-up and return dates.",
+        "places": {
+            "office": "Costa del Silencio office",
+            "airportSouth": "Tenerife South Airport",
+            "airportNorth": "Tenerife North Airport",
+            "port": "Port",
+            "hotel": "Hotel or accommodation",
+            "address": "Apartment or private address"
+        },
+        "lead": "Choose your dates and see the total price instantly."
+    },
+    "results": {
+        "title": "Choose your car",
+        "group": "Group",
+        "noData": "We need your rental location and dates to show you cars and prices.",
+        "backToSearch": "Back to search",
+        "changeSearch": "Change search",
+        "pickup": "Pick-up",
+        "return": "Return",
+        "dayOne": "day",
+        "dayMany": "days",
+        "seats": "Child seats",
+        "seatsHint": "{price} per seat per day",
+        "perDay": "per day",
+        "total": "Total",
+        "taxesIncluded": "Taxes and insurance included",
+        "minDays": "Minimum rental: {n} days",
+        "noRate": "No rate for this duration",
+        "request": "Request this car",
+        "orSimilar": "or similar",
+        "seatsLabel": "seats",
+        "ac": "Air conditioning",
+        "gearbox": {
+            "manual": "Manual",
+            "automatic": "Automatic",
+            "manual_or_automatic": "Manual or automatic"
+        },
+        "showModel": "See {model}",
+        "filters": {
+            "title": "Filter",
+            "gearbox": "Gearbox",
+            "type": "Type",
+            "seats": "Seats",
+            "anySeats": "Any",
+            "seatsMin": "{n} or more",
+            "sort": "Sort by",
+            "sortAsc": "Total price, low to high",
+            "sortDesc": "Total price, high to low",
+            "sortSeats": "Most seats",
+            "showing": "{n} of {total} groups",
+            "noMatch": "No group matches those filters. Try removing one.",
+            "tiers": "Price per day depending on rental length",
+            "types": {
+                "utilitario": "Small cars",
+                "suv": "SUVs",
+                "descapotable": "Convertibles",
+                "furgoneta": "Vans and people carriers"
+            }
+        }
+    },
+    "request": {
+        "title": "Request your booking",
+        "intro": "Check the summary and leave your details. This is not a confirmed booking yet: we will contact you to confirm it.",
+        "summary": "Summary",
+        "group": "Group",
+        "pickup": "Pick-up",
+        "return": "Return",
+        "days": "Days",
+        "seats": "Child seats",
+        "total": "Total",
+        "name": "Full name",
+        "phone": "Phone (with country code, e.g. +44)",
+        "email": "Email",
+        "age": "Driver's age",
+        "licenceYears": "Years holding a driving licence",
+        "address": "Address or accommodation for delivery and pick-up (optional)",
+        "flight": "Flight number (optional)",
+        "comments": "Comments (optional)",
+        "privacy": "I have read and accept the privacy policy",
+        "conditions": "Drivers aged {min} to {max} with at least {years} years of licence.",
+        "submit": "Send request",
+        "sending": "Sending...",
+        "noData": "We need your rental location and dates to show you cars and prices.",
+        "backToSearch": "Back to search",
+        "errors": {
+            "nombre": "Enter your name.",
+            "telefono": "Enter a valid phone number.",
+            "email": "Enter a valid email.",
+            "edad": "The driver's age must be between {min} and {max}.",
+            "carnet": "At least {years} years of licence are required.",
+            "privacidad": "You must accept the privacy policy.",
+            "busqueda": "The search details are not valid. Please search again.",
+            "grupo": "The chosen car is not valid. Please search again.",
+            "precio": "There is no rate for this duration. Please search again.",
+            "idioma": "Invalid language.",
+            "generic": "We could not send your request. Please try again or call us."
+        }
+    },
+    "thanks": {
+        "title": "Request received",
+        "text": "Your request is being processed. We have sent you an email confirming recepit and we will contact you shortly to confirm the booking.",
+        "home": "Back to home"
+    },
+    "hero": {
+        "title": "Hire your car. No surprises.",
+        "lead": "Price per day with taxes and insurance included. You send the request, we reply and confirm it with you. You pay nothing on the website.",
+        "points": [
+            "Taxes included",
+            "Air conditioning",
+            "Website in 5 languages"
+        ]
+    },
+    "home": {
+        "fleetTitle": "Our fleet and daily prices",
+        "fleetLead": "Fourteen groups, from city cars to vans and convertibles. Taxes included.",
+        "allGroups": "See all 14 groups",
+        "priceFrom": "per day, renting for 7 days or more",
+        "benefitsTitle": "Why rent with us",
+        "benefits": [
+            {
+                "title": "Full-risk insurance",
+                "text": "150 € excess and nothing held on your card."
+            },
+            {
+                "title": "No payment on the website",
+                "text": "You send the request and we confirm it with you. Nothing is paid when you send it."
+            },
+            {
+                "title": "Delivery all over the island",
+                "text": "Office, airports, ports, hotels and apartments."
+            },
+            {
+                "title": "Since 1992",
+                "text": "Over 30 years renting cars in Tenerife."
+            }
+        ],
+        "stepsTitle": "Booking is easy",
+        "steps": [
+            {
+                "title": "Choose dates and car",
+                "text": "You see the total price straight away, with any child seats you need."
+            },
+            {
+                "title": "Send your request",
+                "text": "Only your contact details. You get an email saying your request is being processed."
+            },
+            {
+                "title": "We confirm it",
+                "text": "We talk to you to finalise the booking."
+            }
+        ]
     }
-  },
-  "request": {
-    "title": "Request your booking",
-    "intro": "Check the summary and leave your details. This is not a confirmed booking yet: we will contact you to confirm it.",
-    "summary": "Summary",
-    "group": "Group",
-    "pickup": "Pick-up",
-    "return": "Return",
-    "days": "Days",
-    "seats": "Child seats",
-    "total": "Total",
-    "name": "Full name",
-    "phone": "Phone (with country code, e.g. +44)",
-    "email": "Email",
-    "age": "Driver's age",
-    "licenceYears": "Years holding a driving licence",
-    "address": "Address or accommodation for delivery and pick-up (optional)",
-    "flight": "Flight number (optional)",
-    "comments": "Comments (optional)",
-    "privacy": "I have read and accept the privacy policy",
-    "conditions": "Drivers aged {min} to {max} with at least {years} years of licence.",
-    "submit": "Send request",
-    "sending": "Sending...",
-    "noData": "We need your rental location and dates to show you cars and prices.",
-    "backToSearch": "Back to search",
-    "errors": {
-      "nombre": "Enter your name.",
-      "telefono": "Enter a valid phone number.",
-      "email": "Enter a valid email.",
-      "edad": "The driver's age must be between {min} and {max}.",
-      "carnet": "At least {years} years of licence are required.",
-      "privacidad": "You must accept the privacy policy.",
-      "busqueda": "The search details are not valid. Please search again.",
-      "grupo": "The chosen car is not valid. Please search again.",
-      "precio": "There is no rate for this duration. Please search again.",
-      "idioma": "Invalid language.",
-      "generic": "We could not send your request. Please try again or call us."
-    }
-  },
-  "thanks": {
-    "title": "Request received",
-    "text": "Your request is being processed. We have sent you an email confirming recepit and we will contact you shortly to confirm the booking.",
-    "home": "Back to home"
-  },
-  "hero": {
-    "title": "Hire your car. No surprises.",
-    "lead": "Price per day with taxes and insurance included. You send the request, we reply and confirm it with you. You pay nothing on the website.",
-    "points": [
-      "Taxes included",
-      "Air conditioning",
-      "Website in 5 languages"
-    ]
-  },
-  "home": {
-    "fleetTitle": "Our fleet and daily prices",
-    "fleetLead": "Fourteen groups, from city cars to vans and convertibles. Taxes included.",
-    "allGroups": "See all 14 groups",
-    "priceFrom": "per day, renting for 7 days or more",
-    "benefitsTitle": "Why rent with us",
-    "benefits": [
-      {
-        "title": "Full-risk insurance",
-        "text": "150 € excess and nothing held on your card."
-      },
-      {
-        "title": "No payment on the website",
-        "text": "You send the request and we confirm it with you. Nothing is paid when you send it."
-      },
-      {
-        "title": "Delivery all over the island",
-        "text": "Office, airports, ports, hotels and apartments."
-      },
-      {
-        "title": "Since 1992",
-        "text": "Over 30 years renting cars in Tenerife."
-      }
-    ],
-    "stepsTitle": "Booking is easy",
-    "steps": [
-      {
-        "title": "Choose dates and car",
-        "text": "You see the total price straight away, with any child seats you need."
-      },
-      {
-        "title": "Send your request",
-        "text": "Only your contact details. You get an email saying your request is being processed."
-      },
-      {
-        "title": "We confirm it",
-        "text": "We talk to you to finalise the booking."
-      }
-    ]
-  }
 }
