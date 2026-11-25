@@ -2,86 +2,148 @@
 import Base from "../../layouts/Base.astro";
 import TarjetaGrupo from "../../components/TarjetaGrupo.astro";
 import tarifas from "../../data/tarifas.json";
+import { categorias } from "../../lib/filtros";
 import {
-    getDictionary,
-    locales,
-    localizedPath,
-    type Locale,
+  getDictionary,
+  locales,
+  localizedPath,
+  type Locale,
 } from "../../i18n/utils";
 import { formatearEuros } from "../../lib/formato";
 import type { Tarifas } from "../../lib/tipos";
 import { LUGARES } from "../../lib/busqueda";
 
 export function getStaticPaths() {
-    return locales.map((lang) => ({ params: { lang } }));
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.params.lang as Locale;
 const t = getDictionary(lang);
 const r = t.results;
+const f = r.filters;
 const data = tarifas as unknown as Tarifas;
 const precioSilla = formatearEuros(data.meta.baby_seat_per_day_eur, lang);
 
 const textos = {
-    dayOne: r.dayOne,
-    dayMany: r.dayMany,
-    pickup: r.pickup,
-    return: r.return,
-    minDays: r.minDays,
-    noRate: r.noRate,
-    ...Object.fromEntries(
-        LUGARES.map((lugar) => [`place_${lugar}`, t.search.places[lugar]]),
-    ),
+  dayOne: r.dayOne,
+  dayMany: r.dayMany,
+  pickup: r.pickup,
+  return: r.return,
+  minDays: r.minDays,
+  noRate: r.noRate,
+  showing: f.showing,
+  ...Object.fromEntries(
+    LUGARES.map((lugar) => [`place_${lugar}`, t.search.places[lugar]]),
+  ),
 };
 ---
 
 <Base
-    lang={lang}
-    ruta="resultados"
-    noindex
-    title={`${r.title} · Tropic Rent a Car`}
+  lang={lang}
+  ruta="resultados"
+  noindex
+  title={`${r.title} · Tropic Rent a Car`}
 >
-    <div
-        class="contenedor resultados"
-        data-resultados
-        data-lang={lang}
-        data-solicitud={localizedPath(lang, "solicitud")}
-        data-textos={JSON.stringify(textos)}
-    >
-        <h1>{r.title}</h1>
+  <div
+    class="contenedor resultados"
+    data-resultados
+    data-lang={lang}
+    data-solicitud={localizedPath(lang, "solicitud")}
+    data-textos={JSON.stringify(textos)}
+  >
+    <h1>{r.title}</h1>
 
-        <div data-sin-datos hidden>
-            <p class="error">{r.noData}</p>
-            <a class="boton" href={localizedPath(lang)}>{r.backToSearch}</a>
-        </div>
-
-        <div data-con-datos hidden>
-            <div class="barra">
-                <p data-resumen></p>
-                <a href={`${localizedPath(lang)}#buscador`} data-cambiar
-                    >{r.changeSearch}</a
-                >
-            </div>
-
-            <div class="campo campo-sillas">
-                <label for="sillas">{r.seats}</label>
-                <select id="sillas" data-sillas>
-                    {[0, 1, 2, 3].map((n) => <option value={n}>{n}</option>)}
-                </select>
-                <small>{r.seatsHint.replace("{price}", precioSilla)}</small>
-            </div>
-
-            <div class="lista-grupos">
-                {
-                    data.groups.map((grupo) => (
-                        <TarjetaGrupo lang={lang} grupo={grupo} />
-                    ))
-                }
-            </div>
-        </div>
+    <div data-sin-datos hidden>
+      <p class="error">{r.noData}</p>
+      <a class="boton" href={localizedPath(lang)}>
+        {r.backToSearch}
+      </a>
     </div>
+
+    <div data-con-datos hidden>
+      <div class="barra">
+        <p data-resumen></p>
+        <a href={`${localizedPath(lang)}#buscador`} data-cambiar>
+          {r.changeSearch}
+        </a>
+      </div>
+
+      <div class="campo campo-sillas">
+        <label for="sillas">{r.seats}</label>
+        <select id="sillas" data-sillas>
+          {[0, 1, 2, 3].map((n) => (
+            <option value={n}>{n}</option>
+          ))}
+        </select>
+        <small>{r.seatsHint.replace("{price}", precioSilla)}</small>
+      </div>
+
+      <div class="comparador">
+        <aside class="filtros" aria-labelledby="titulo-filtros">
+          <h2 id="titulo-filtros">{f.title}</h2>
+          <fieldset data-filtro="cambio">
+            <legend>{f.gearbox}</legend>
+            <label>
+              <input type="checkbox" value="manual" checked />{" "}
+              {r.gearbox.manual}
+            </label>
+            <label>
+              <input type="checkbox" value="automatic" checked />{" "}
+              {r.gearbox.automatic}
+            </label>
+          </fieldset>
+          <fieldset data-filtro="categoria">
+            <legend>{f.type}</legend>
+            {categorias.map((c) => (
+              <label>
+                <input type="checkbox" value={c} checked /> {f.types[c]}
+              </label>
+            ))}
+          </fieldset>
+          <fieldset data-filtro="plazas">
+            <legend>{f.seats}</legend>
+            <label>
+              <input type="radio" name="plazas" value="0" checked />{" "}
+              {f.anySeats}
+            </label>
+            <label>
+              <input type="radio" name="plazas" value="5" />{" "}
+              {f.seatsMin.replace("{n}", "5")}
+            </label>
+            <label>
+              <input type="radio" name="plazas" value="7" />{" "}
+              {f.seatsMin.replace("{n}", "7")}
+            </label>
+          </fieldset>
+        </aside>
+
+        <div class="comparador-lista">
+          <div class="comparador-barra">
+            <p data-cuenta aria-live="polite"></p>
+            <div class="campo">
+              <label for="orden">{f.sort}</label>
+              <select id="orden" data-orden>
+                <option value="precio-asc">{f.sortAsc}</option>
+                <option value="precio-desc">{f.sortDesc}</option>
+                <option value="plazas">{f.sortSeats}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="lista-grupos" data-lista>
+            {data.groups.map((grupo) => (
+              <TarjetaGrupo lang={lang} grupo={grupo} />
+            ))}
+          </div>
+          <p class="nota" data-sin-coincidencias hidden>
+            {f.noMatch}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Base>
 
 <script>
-    import "../../scripts/resultados";
+  import "../../scripts/resultados";
 </script>
