@@ -1,29 +1,74 @@
+/*
+  Piel de la web: aquí vive todo lo que cambia de un diseño a otro.
+  Si el cliente elige otra propuesta, se cambian estos valores (y, si hace falta, las
+  clases de global.css), pero no la lógica de precios, la búsqueda ni la solicitud.
+
+  Hay dos temas: el claro (por defecto, abajo) y el oscuro, que se activa con
+  <html data-tema="oscuro">. Cada tema define los mismos nombres.
+*/
 :root {
-    /* Colores */
-    --fondo: #faf7ee;
-    --superficie: #f3eedf;
-    --blanco: #ffffff;
-    --texto: #232321;
-    --texto-2: #5c5b55;
-    --texto-hero: #3e3d38;
-    --linea: #e3ded0;
-    --campo-borde: #8f8a7a;
-    --amarillo: #f5c842;
-    --amarillo-suave: #fbf0c7;
-    --amarillo-fuerte: #e0a800;
-    --carbon: #232321;
-    --carbon-suave: #3a3a37;
-    --error: #b42318;
-    --foco: #1b5fd1;
+  color-scheme: light;
 
-    /* Tipografía */
-    --fuente: 'Archivo Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Colores */
+  --fondo: #faf7ee;
+  --superficie: #f3eedf;
+  --blanco: #ffffff;
+  --texto: #232321;
+  --texto-2: #5c5b55;
+  --texto-suave: #3e3d38;
+  --texto-hero: var(--texto-suave);
+  --linea: #e3ded0;
+  --campo-borde: #8f8a7a;
+  --amarillo: #f5c842;
+  --amarillo-suave: #fbf0c7;
+  --amarillo-fuerte: #e0a800;
+  --sobre-amarillo: #232321;
+  --error: #b42318;
+  --foco: #1b5fd1;
 
-    /* Forma */
-    --radio-chico: 8px;
-    --radio: 14px;
-    --radio-campo: 10px;
-    --radio-grande: 18px;
-    --radio-pastilla: 999px;
-    --sombra: 0 10px 30px rgba(35 35 33 / 0.1);
+  /* Pie de página y botón oscuro */
+  --pie-fondo: #232321;
+  --pie-texto: #faf7ee;
+  --boton2-fondo: #232321;
+  --boton2-texto: #faf7ee;
+  --boton2-hover: #3a3a37;
+
+  /* Tipografía */
+  --fuente:
+    "Archivo Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Forma */
+  --radio-chico: 8px;
+  --radio-pastilla: 999px;
+  --radio: 14px;
+  --radio-campo: 10px;
+  --radio-grande: 18px;
+  --sombra: 0 10px 30px rgb(35 35 33 / 0.1);
+}
+
+:root[data-tema="oscuro"] {
+  color-scheme: dark;
+
+  --fondo: #1e1e1c;
+  --superficie: #34332f;
+  --blanco: #292926;
+  --texto: #edeae0;
+  --texto-2: #c2bfb3;
+  --texto-suave: #c2bfb3;
+  --linea: #3a3935;
+  --campo-borde: #8f8a7a;
+  --amarillo: #f5c842;
+  --amarillo-suave: #3b3420;
+  --amarillo-fuerte: #ffd95e;
+  --sobre-amarillo: #232321;
+  --error: #ff8f84;
+  --foco: #8ab8ff;
+
+  --pie-fondo: #121211;
+  --pie-texto: #c2bfb3;
+  --boton2-fondo: #edeae0;
+  --boton2-texto: #1e1e1c;
+  --boton2-hover: #ffffff;
+
+  --sombra: 0 10px 30px rgb(0 0 0 / 0.4);
 }
